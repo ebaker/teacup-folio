@@ -1,0 +1,22 @@
+{
+  "name": "stylus-tea-boiler",
+  "version": "0.1.0",
+  "description": "coffeescript, stylus, teacup boilerplate",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eliot Baker",
+  "license": "MIT",
+  "dependencies": {
+    "coffee-script": "^1.9.0",
+    "connect-assets": "^4.4.0",
+    "express": "^4.11.1",
+    "nib": "^1.1.0",
+    "stylus": "^0.49.3",
+    "teacup": "^1.0.0"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  }
+}
