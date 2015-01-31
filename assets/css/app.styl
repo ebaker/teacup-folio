@@ -1,4 +1,72 @@
 @import 'nib'
 
 body
-  font-family sans-serif
+  background #171d25
+  color white
+  font-family 'Lato'
+
+.name
+  font-family 'Open Sans'
+  font-size 42px
+  text-align center
+  margin-top 40px
+
+.left
+  display inline-block
+  width 250px
+  margin-left 20%
+  margin-top 40px
+  vertical-align top
+
+.right
+  display inline-block
+  position relative
+  height 380px
+  width 380px
+  margin-top 40px
+  .content
+    position absolute
+    opacity 0
+    transition all ease-out 400ms
+    text-align center
+    > img
+      max-width 100%
+    &.active
+      transition-delay 400ms
+      opacity 1
+      z-index 100
+    &.contact
+      padding-top 60px
+      img
+        height 96px
+
+.current
+  background orange
+  border-radius 1px
+  position absolute
+  top 4px
+  left 0
+  width 6px
+  height 40px
+  transition all 240ms cubic-bezier(0.145, 1.075, 0.345, 1.12) 60ms
+  transition-duration 400ms
+  &.contact
+    transform translateY(0) translateZ(0)
+  &.projects
+    transform translateY(70px) translateZ(0)
+  &.about
+    transform translateY(140px) translateZ(0)
+
+ul
+  list-style none
+  padding-left 20px
+  position relative
+  > li
+    cursor pointer
+    font-family 'Lato'
+    font-weight 400
+    font-size 24px
+    margin-bottom 20px
+    box-sizing border-box
+    padding 10px 6px
+

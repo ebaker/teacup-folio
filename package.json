@@ -1,5 +1,5 @@
 {
-  "name": "stylus-tea-boiler",
+  "name": "tacup-folio",
   "version": "0.1.0",
   "description": "coffeescript, stylus, teacup boilerplate",
   "main": "server.js",
