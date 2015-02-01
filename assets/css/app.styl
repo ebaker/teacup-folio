@@ -4,6 +4,7 @@ body
   background #171d25
   color white
   font-family 'Lato'
+  margin 0
 
   > h1
     font-family 'Open Sans'
@@ -65,4 +66,62 @@ body
       &.contact
         padding-top 60px
         img
-          height 96px
+          max-height 96px
+          width auto
+
+.mobile
+  display none
+
+ @media (max-width: 640px)
+   body
+     h1
+       display none
+     .navigation
+       background black
+       display block
+       margin 0
+       max-height 0
+       overflow hidden
+       position fixed
+       top 66px
+       transition all ease-in 400ms
+       width 100%
+       z-index 200
+       > ul
+         border-top 1px dashed orange
+         margin 0px
+         padding-left 0px
+         > .slider
+           display none
+         > li
+           border-bottom 1px dotted gray
+           margin 0
+           padding 20px 20px 20px 60px
+       &.open
+         max-height 300px
+      .main
+        display block
+        margin 0
+        width 100%
+        > .content
+          box-sizing border-box
+          padding 10px
+          &.contact
+            margin 0 auto
+            padding 0
+            width 100%
+            > a
+              display block
+              margin-top 10px
+
+   .mobile
+     background black
+     display block
+     height 66px
+     > div
+       display inline-block
+       font-size 42px
+       padding 8px 12px
+       &.button
+         border-right solid 1px orange
+         box-sizing border-box

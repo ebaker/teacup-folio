@@ -28,6 +28,12 @@ module.exports = renderable ({data, fonts, scripts}) ->
       # header
       h1 -> data.name
 
+      div '.mobile', ->
+        div '.button', -> '>'
+        div '.name', ->
+          data.name
+        div '.active'
+
       # navigation
       div '.navigation', ->
         ul ->

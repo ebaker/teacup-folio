@@ -3,11 +3,8 @@ $(document).ready ->
   # init
   $('.content.contact').addClass 'active'
 
-  $('.navigation > ul > li').on 'mouseenter', (e) ->
-
-    # left navigation selection
-    $el = $ e.currentTarget
-    selector = $el.data 'selector'
+  # helpers
+  navigate = (selector) ->
     $slider = $ '.slider'
     $slider.removeClass('contact projects about').addClass selector
 
@@ -16,3 +13,14 @@ $(document).ready ->
     $main.find('.active.content').removeClass 'active'
     $main.find(".#{selector}").addClass 'active'
 
+    $('.navigation.open').removeClass 'open'
+  
+  # events
+  $('.navigation > ul > li').on 'mouseenter mousedown', (e) ->
+    selector = $(e.currentTarget).data 'selector'
+    navigate selector
+
+  # mobile
+  $('.mobile .button').on 'mouseup', (e) ->
+    $('.navigation > ul > li').off 'mouseenter'
+    $('.navigation').toggleClass 'open'
