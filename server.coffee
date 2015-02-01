@@ -41,6 +41,13 @@ app.get '/', (req, res) ->
       img: 'http://eliotbaker.com/images/me.jpg'
       bio: 'coffeescript - yoga - tea'
 
-  res.render 'index', {data: me}
+  fonts = [
+    'http://fonts.googleapis.com/css?family=Open+Sans:600'
+    'http://fonts.googleapis.com/css?family=Lato:400,300italic'
+  ]
+
+  scripts = ['//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js']
+
+  res.render 'index', {data: me, fonts: fonts, scripts: scripts}
 
 app.listen 3000

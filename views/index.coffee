@@ -1,8 +1,8 @@
 teacup = require 'teacup'
 {renderable, raw, js, css, html, head, link, script, title} = teacup
-{body, div, ul, li, span, img, a} = teacup
+{body, h1, div, ul, li, span, img, a} = teacup
 
-module.exports = renderable ({data}) ->
+module.exports = renderable ({data, fonts, scripts}) ->
 
   html ->
     return unless data
@@ -11,14 +11,14 @@ module.exports = renderable ({data}) ->
     head ->
       title data.name
       
-      fonts = [
-        'http://fonts.googleapis.com/css?family=Open+Sans:600'
-        'http://fonts.googleapis.com/css?family=Lato:400,300italic'
-      ]
-      for font in fonts
-        link {href: font, rel: 'stylesheet', type: 'text/css'}
+      fonts ?= []
+      for url in fonts
+        link {href: url, rel: 'stylesheet', type: 'text/css'}
 
-      script src: "//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"
+      scripts ?= []
+      for url in scripts
+        script src: url
+
       js 'app'
       css 'app'
 
@@ -26,18 +26,19 @@ module.exports = renderable ({data}) ->
     body ->
       
       # header
-      div '.name', -> data.name
+      h1 -> data.name
 
       # navigation
-      div '.left', ->
+      div '.navigation', ->
         ul ->
-          span '.current'
+          span '.slider'
           for item of data
             continue if item is 'name'
-            li 'data-sel': item, -> item
+            li 'data-selector': item, ->
+              item
 
       # content
-      div '.right', ->
+      div '.main', ->
         for item of data
           continue if item is 'name'
           div ".content #{item}", ->
@@ -54,6 +55,3 @@ module.exports = renderable ({data}) ->
               when 'about'
                 img src: data.about.img
                 div -> data.about.bio
-
-
-
