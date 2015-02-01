@@ -1,5 +1,5 @@
 teacup = require 'teacup'
-{renderable, raw, js, css, html, head, link, script, title} = teacup
+{renderable, raw, js, css, html, head, meta, link, script, title} = teacup
 {body, h1, div, ul, li, span, img, a} = teacup
 
 module.exports = renderable ({data, fonts, scripts}) ->
