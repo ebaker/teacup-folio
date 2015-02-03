@@ -12,6 +12,10 @@ $(document).ready ->
     $main = $ '.main'
     $main.find('.active.content').removeClass 'active'
     $main.find(".#{selector}").addClass 'active'
+    
+    # spin to selector
+    spinners = 'about contact projects'
+    $main.find('.spinner').removeClass(spinners).addClass selector
 
     $('.navigation.open').removeClass 'open'
   

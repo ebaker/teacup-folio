@@ -48,15 +48,83 @@ body
 
   .main
     display inline-block
-    height 380px
-    margin-top 40px
+    height 500px
     position relative
-    width 380px
-    > .content
-      opacity 0
+    width 420px
+    $height_width = 420
+    $height_width_px = unit($height_width, 'px')
+    > .spinner
+      height $height_width_px
       position absolute
+      top 55%
+      $right_margin = unit(($height_width / -2), 'px')
+      $top_margin = unit(($height_width * (-0.55)), 'px')
+      margin $top_margin $right_margin 0 0
+      right 45%
+      width $height_width_px
+      transition all 300ms ease-in-out 200ms
+      z-index 300
+      > .circle
+        border-radius 50%
+        border 6px solid purple
+        box-sizing border-box
+        height $height_width_px
+        width $height_width_px
+        position absolute
+      > .button
+        position absolute
+        transition all 300ms ease-in-out 200ms
+        &.contact
+          top 2%
+          left 50%
+        &.projects
+          top 72%
+          left 89.5%
+        &.about
+          top 72%
+          left 8.5%
+      > div > .info
+        background #333
+        border 10px solid orange
+        border-radius 60px
+        margin -45px 0 0 -45px
+        position absolute
+        top 0
+        left 0
+        height 80px
+        width 80px
+        > div
+          position static
+          display block
+          margin 26px auto
+          text-align center
+          color #eee
+          font-size 17px
+      &.contact
+        transform rotateZ(0) translateZ(0)
+      &.projects
+        transform rotateZ(-120deg) translateZ(0)
+        > div
+          transform rotateZ(120deg) translateZ(0)
+      &.about
+        transform rotateZ(-240deg) translateZ(0)
+        > div
+          transform rotateZ(240deg) translateZ(0)
+
+
+    > .contents
+      position relative
+      height 340px
+      width 340px
+      margin 100px 0px 0px 70px
+
+    > .contents > .content
+      position absolute
+      width 340px
+      opacity 0
       text-align center
       transition all ease-out 400ms
+      z-index 200
       img
         max-width 100%
       &.active
@@ -64,9 +132,10 @@ body
         transition-delay 400ms
         z-index 100
       &.contact
-        padding-top 60px
+        padding-top 80px
+        text-align center
         img
-          max-height 96px
+          max-height 76px
           width auto
 
 .mobile
