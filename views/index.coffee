@@ -10,7 +10,7 @@ module.exports = renderable ({data, fonts, scripts}) ->
     # head
     head ->
       title data.name
-      meta name: 'viewport', content: 'width=device-width'
+      meta name: 'viewport', content: 'width=device-width, initial-scale=1.0'
       
       fonts ?= []
       for url in fonts
