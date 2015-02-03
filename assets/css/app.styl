@@ -6,16 +6,21 @@ body
   font-family 'Lato'
   margin 0
 
+  // header
   > h1
     font-family 'Open Sans'
     font-size 42px
     margin-top 40px
     text-align center
 
+#app
+  display block
+  text-align center
+  //navigation
   .navigation
     display inline-block
     width 120px
-    margin 40px 0px 0px 25%
+    margin-top 100px
     vertical-align top
     > ul
       list-style none
@@ -46,6 +51,7 @@ body
         margin-bottom 20px
         padding 10px 6px
 
+  // main
   .main
     display inline-block
     margin-left 120px
@@ -54,6 +60,8 @@ body
     width 420px
     $height_width = 420
     $height_width_px = unit($height_width, 'px')
+
+    // spinner
     > .spinner
       height $height_width_px
       position absolute
@@ -112,7 +120,7 @@ body
         > div
           transform rotateZ(240deg) translateZ(0)
 
-
+    // contents
     > .contents
       position relative
       height 340px
@@ -151,10 +159,24 @@ body
 .mobile
   display none
 
+// @media (max-width: 768px)
+//   #app
+//     .navigation
+//       display block
+//       margin 0 auto
+// 
+//     // quick main hack
+//     .main
+//       left -210px
+//       margin-left 50%
+//       position relative
+
+
  @media (max-width: 640px)
    body
      h1
        display none
+   #app
      .navigation
        background black
        display block
