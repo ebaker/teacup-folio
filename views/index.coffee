@@ -36,6 +36,7 @@ module.exports = renderable ({data, fonts, scripts}) ->
         div '.active'
 
       div '#app', ->
+
         # navigation
         div '.navigation', ->
           ul ->
@@ -51,7 +52,7 @@ module.exports = renderable ({data, fonts, scripts}) ->
             div '.circle'
             for item of data
               continue if item is 'name'
-              div ".button .#{item}", ->
+              div ".button .#{item}", 'data-selector': item, ->
                 div '.info', ->
                   div -> item
           div '.contents', ->

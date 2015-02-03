@@ -72,7 +72,7 @@ body
       right 45%
       width $height_width_px
       transition all 300ms ease-in-out 200ms
-      z-index 100
+      z-index 200
       > .circle
         border-radius 50%
         border 6px solid purple
@@ -96,14 +96,19 @@ body
         background #333
         border 10px solid orange
         border-radius 60px
+        cursor pointer
         margin -45px 0 0 -45px
         position absolute
         top 0
         left 0
         height 80px
         width 80px
+        z-index 400
+        &:hover
+          background darken(#333, 10)
         > div
           position static
+          pointer-events none
           display block
           margin 26px auto
           text-align center
@@ -126,6 +131,7 @@ body
       height 340px
       width 340px
       margin 100px 0px 0px 62px
+      z-index 100
 
     > .contents > .content
       position absolute
@@ -133,7 +139,6 @@ body
       opacity 0
       text-align center
       transition all 400ms ease-in-out 300ms
-      z-index 200
       img
         max-width 100%
       &.active
