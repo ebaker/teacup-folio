@@ -12,7 +12,8 @@ app.set 'view engine', 'coffee'
 app.engine 'coffee', teacup.renderFile
 
 # client files
-app.use '/lib', express.static(process.cwd() + '/bower_components')
+app.use express.static "#{process.cwd()}/public"
+app.use '/lib', express.static("#{process.cwd()}/bower_components")
 
 # connect-assets for stylus+nib
 assets().environment.getEngines('.styl').configure (s) -> s.use(nib())

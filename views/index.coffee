@@ -73,11 +73,13 @@ module.exports = renderable ({data, fonts, scripts}) ->
                       'cycle-slides': '> div'
                     }, ->
                       for project in data.projects
-                        div '.project', ->
-                          div -> project.title
-                          div -> project.subtitle
-                          a href: project.url, -> 'View' if project.url
-                          a href: project.github, -> 'Github' if project.github
+                        div '.slide', ->
+                          div '.project', ->
+                           img src: project.image if project.image
+                           div -> project.title
+                           div -> project.subtitle
+                           a href: project.url, -> 'View' if project.url
+                           a href: project.github, -> 'Github' if project.github
 
 
                   when 'about'

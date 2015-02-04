@@ -2,7 +2,7 @@ $(document).ready ->
 
   # init
   $('.content.contact').addClass 'active'
-  $('.cycle-slideshow').cycle()
+  $('.cycle-slideshow').cycle() # dont 'pause'
 
   # helpers
   navigate = (selector) ->

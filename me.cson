@@ -20,11 +20,13 @@
   ]
   projects: [
     {
+      image: 'http://localhost:3000/images/mg.png'
       title: 'Martin Garrixx'
       subtitle: 'Photos'
       url: '#'
     }
     {
+      image: 'http://localhost:3000/images/3lau.png'
       title: '3LAU'
       subtitle: 'Pencils of Promise'
       url: '#'
