@@ -16,8 +16,9 @@ body
 #app
   display block
   text-align center
-  width 660px
+  width 768px
   margin 0 auto
+  overflow-x hidden
   
   // navigation
   .navigation
@@ -75,7 +76,7 @@ body
       right 45%
       width $height_width_px
       transition all 300ms ease-in-out 200ms
-      z-index 200
+      z-index 100
       > .circle
         border-radius 50%
         border 6px solid purple
@@ -134,7 +135,7 @@ body
       height 340px
       width 340px
       margin 100px 0px 0px 62px
-      z-index 100
+      z-index 200
 
     > .contents > .content
       position absolute
@@ -149,12 +150,14 @@ body
         transition-delay 400ms
         z-index 300
       &.about 
+        margin 40px 0 0 55px
+        width 240px
         img
-          border-radius 50%
+          max-width 100%
         > div
           margin-top 20px
       &.contact
-        padding-top 80px
+        margin-top 80px
         text-align center
         > a
           padding-right 8px
@@ -162,7 +165,8 @@ body
           max-height 76px
           width auto
       &.projects
-        margin-top 40px
+        margin 40px 0 0 50px
+        width 240px
         text-align center
         .slide
           width 100%
@@ -177,7 +181,7 @@ body
             background-size cover
             border-radius 50%
           > h3, div, a
-            margin-top 3px
+            margin 2px 0
           > a
             display block
 
@@ -212,7 +216,7 @@ body
        top 66px
        transition all ease-in 400ms
        width 100%
-       z-index 200
+       z-index 1000
        > ul
          border-top 1px dashed orange
          margin 0px
