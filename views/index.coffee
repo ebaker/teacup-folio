@@ -67,7 +67,18 @@ module.exports = renderable ({data, fonts, scripts}) ->
                         img src: contact.img
 
                   when 'projects'
-                    data.projects
+                    div '.cycle-slideshow', data: {
+                      'cycle-fx': 'scrollHorz'
+                      'cycle-timeout': '2000'
+                      'cycle-slides': '> div'
+                    }, ->
+                      for project in data.projects
+                        div '.project', ->
+                          div -> project.title
+                          div -> project.subtitle
+                          a href: project.url, -> 'View' if project.url
+                          a href: project.github, -> 'Github' if project.github
+
 
                   when 'about'
                     img src: data.about.img
