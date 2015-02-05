@@ -131,6 +131,7 @@ body
 
     // contents
     > .contents
+      pointer-events none
       position relative
       height 340px
       width 340px
@@ -143,6 +144,8 @@ body
       opacity 0
       text-align center
       transition all 400ms ease-in-out 300ms
+      a 
+        pointer-events auto
       img
         max-width 100%
       &.active
@@ -188,8 +191,9 @@ body
 .mobile
   display none
 
-// @media (max-width: 768px)
-//   #app
+@media (max-width: 768px)
+  #app
+    max-width 100%
 //     .navigation
 //       display block
 //       margin 0 auto
@@ -226,25 +230,33 @@ body
          > li
            border-bottom 1px dotted gray
            margin 0
+           text-align left
            padding 20px 20px 20px 60px
        &.open
          max-height 300px
       .main
+        top -66px
         display block
         margin 0
         width 100%
         > .spinner
-          display none
-        > .content
-          box-sizing border-box
-          padding 10px
-          &.contact
-            margin 30px auto
-            padding 0
-            width 100%
-            > a
-              display block
-              margin-top 15px
+          max-width 100%
+          right 49.9%
+        > .contents
+          margin 60px auto
+          padding-top 90px
+          > .content
+            box-sizing border-box
+            padding 10px
+            &.contact
+              margin 40px auto
+              padding 0
+              width 100%
+              > a
+                display inline-block
+                margin-top 15px
+                > img
+                  max-height 90px
 
    .mobile
      background black
