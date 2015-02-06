@@ -1,5 +1,6 @@
 @import 'nib'
 
+
 body
   background #171d25
   color white
@@ -62,18 +63,20 @@ body
     height 500px
     position relative
     width 420px
-    $height_width = 420
-    $height_width_px = unit($height_width, 'px')
 
     // spinner
+    $height_width = 420
+    $height_width_px = unit($height_width, 'px')
+    $top_margin = unit(($height_width * (-0.55)), 'px')
+    $right_margin = unit(($height_width / -2), 'px')
+    $top_margin = unit(($height_width / -2), 'px')
+
     > .spinner
       height $height_width_px
       position absolute
-      top 55%
-      $right_margin = unit(($height_width / -2), 'px')
-      $top_margin = unit(($height_width * (-0.55)), 'px')
+      top 50%
       margin $top_margin $right_margin 0 0
-      right 45%
+      right 50%
       width $height_width_px
       transition all 300ms ease-in-out 200ms
       z-index 100
@@ -130,21 +133,26 @@ body
           transform rotateZ(240deg) translateZ(0)
 
     // contents
-    > .contents
+    > .wrapper
+      height $height_width_px
+      position absolute
+      top 50%
+      margin $top_margin $right_margin 0 0
+      right 50%
+      width $height_width_px
+
+    .contents
       pointer-events none
       position relative
-      height 340px
-      width 340px
-      margin 100px 0px 0px 62px
       z-index 200
 
-    > .contents > .content
+    .contents > .content
       position absolute
-      width 340px
+      width 100%
       opacity 0
       text-align center
       transition all 400ms ease-in-out 300ms
-      a 
+      a, .cycle-slideshow
         pointer-events auto
       img
         max-width 100%
@@ -153,14 +161,14 @@ body
         transition-delay 400ms
         z-index 300
       &.about 
-        margin 40px 0 0 55px
-        width 240px
+        top 0
         img
+          width 240px
           max-width 100%
         > div
           margin-top 20px
       &.contact
-        margin-top 80px
+        padding-top 50px
         text-align center
         > a
           padding-right 8px
@@ -168,9 +176,11 @@ body
           max-height 76px
           width auto
       &.projects
-        margin 40px 0 0 50px
+        margin 90px auto
         width 240px
         text-align center
+        position relative
+        left 5px
         .slide
           width 100%
         .project
@@ -235,24 +245,31 @@ body
        &.open
          max-height 300px
       .main
-        top -66px
         display block
         margin 0
         width 100%
         > .spinner
-          right 49.9%
-        > .contents
-          margin 60px auto
-          padding-top 90px
+          display none
+        > .wrapper
+          position static
+          margin 0
+        .contents
+          margin 0
+          position static
           > .content
             box-sizing border-box
-            padding 10px
+            padding-top 40px
+            &.projects 
+              margin 20px auto
+              left 0
+              .project > img
+                border-radius 0
             &.contact
-              margin 40px auto
+              margin 0px auto
               padding 0
               width 100%
               > a
-                display inline-block
+                display block
                 margin-top 15px
                 > img
                   max-height 90px
@@ -268,3 +285,4 @@ body
        &.button
          border-right solid 1px orange
          box-sizing border-box
+
