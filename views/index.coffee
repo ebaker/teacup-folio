@@ -55,34 +55,35 @@ module.exports = renderable ({data, fonts, scripts}) ->
               div ".button .#{item}", 'data-selector': item, ->
                 div '.info', ->
                   div -> item
-          div '.contents', ->
-            for item of data
-              continue if item is 'name'
-              div ".content #{item}", ->
-                switch item
+          div '.wrapper', ->
+            div '.contents', ->
+              for item of data
+                continue if item is 'name'
+                div ".content #{item}", ->
+                  switch item
 
-                  when 'contact'
-                    for contact in data.contact
-                      a href: contact.url, target: '_blank', ->
-                        img src: contact.img
+                    when 'contact'
+                      for contact in data.contact
+                        a href: contact.url, target: '_blank', ->
+                          img src: contact.img
 
-                  when 'projects'
-                    div '.cycle-slideshow', data: {
-                      'cycle-fx': 'scrollHorz'
-                      'cycle-timeout': '2000'
-                      'cycle-slides': '> div'
-                      'cycle-swipe': 'true'
-                    }, ->
-                      for project in data.projects
-                        div '.slide', ->
-                          div '.project', ->
-                           img src: project.image if project.image
-                           h3 -> project.title
-                           div -> project.subtitle
-                           a href: project.url, -> 'View' if project.url
-                           a href: project.github, -> 'Github' if project.github
+                    when 'projects'
+                      div '.cycle-slideshow', data: {
+                        'cycle-fx': 'scrollHorz'
+                        'cycle-timeout': '2000'
+                        'cycle-slides': '> div'
+                        'cycle-swipe': 'true'
+                      }, ->
+                        for project in data.projects
+                          div '.slide', ->
+                            div '.project', ->
+                             img src: project.image if project.image
+                             h3 -> project.title
+                             div -> project.subtitle
+                             a href: project.url, -> 'View' if project.url
+                             a href: project.github, -> 'Github' if project.github
 
 
-                  when 'about'
-                    img src: data.about.img
-                    div -> data.about.bio
+                    when 'about'
+                      img src: data.about.img
+                      div -> data.about.bio
