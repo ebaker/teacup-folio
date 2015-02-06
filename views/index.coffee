@@ -48,8 +48,8 @@ module.exports = renderable ({data, fonts, scripts}) ->
 
         # content
         div '.main', ->
+          div '.circle'
           div '.spinner', ->
-            div '.circle'
             for item of data
               continue if item is 'name'
               div ".button .#{item}", 'data-selector': item, ->
@@ -78,10 +78,12 @@ module.exports = renderable ({data, fonts, scripts}) ->
                           div '.slide', ->
                             div '.project', ->
                              img src: project.image if project.image
-                             h3 -> project.title
-                             div -> project.subtitle
-                             a href: project.url, -> 'View' if project.url
-                             a href: project.github, -> 'Github' if project.github
+                             div '.info', ->
+                               h3 -> project.title
+                               div -> project.subtitle
+                               a href: project.url, -> 'View' if project.url
+                               if project.github
+                                 a href: project.github, -> 'Github'
 
 
                     when 'about'

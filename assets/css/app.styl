@@ -71,7 +71,7 @@ body
     $right_margin = unit(($height_width / -2), 'px')
     $top_margin = unit(($height_width / -2), 'px')
 
-    > .spinner
+    > .spinner, > .circle
       height $height_width_px
       position absolute
       top 50%
@@ -79,14 +79,12 @@ body
       right 50%
       width $height_width_px
       transition all 300ms ease-in-out 200ms
-      z-index 100
-      > .circle
+      z-index 20
+      pointer-events none
+      &.circle
         border-radius 50%
         border 6px solid purple
         box-sizing border-box
-        height $height_width_px
-        width $height_width_px
-        position absolute
       > .button
         position absolute
         transition all 300ms ease-in-out 200ms
@@ -109,8 +107,8 @@ body
         top 0
         left 0
         height 80px
+        pointer-events auto
         width 80px
-        z-index 400
         &:hover
           background darken(#333, 10)
         > div
@@ -144,31 +142,36 @@ body
     .contents
       pointer-events none
       position relative
-      z-index 200
+      z-index 10
+      border-radius 50%
+      overflow hidden
+      height 100%
+      width 100%
+      border 6px solid transparent
+      box-sizing border-box
 
     .contents > .content
       position absolute
       width 100%
+      height 100%
       opacity 0
       text-align center
       transition all 400ms ease-in-out 300ms
       a, .cycle-slideshow
         pointer-events auto
-      img
-        max-width 100%
       &.active
         opacity 1
         transition-delay 400ms
-        z-index 300
       &.about 
         top 0
-        img
-          width 240px
-          max-width 100%
+        > img
+          width 100%
         > div
+          position abolute
+          bottom 40px
           margin-top 20px
       &.contact
-        padding-top 50px
+        padding-top 120px
         text-align center
         > a
           padding-right 8px
@@ -176,27 +179,30 @@ body
           max-height 76px
           width auto
       &.projects
-        margin 90px auto
-        width 240px
+        margin 0
         text-align center
         position relative
-        left 5px
         .slide
           width 100%
         .project
-          width 240px
           margin 0 auto
           position relative
           > img
             margin-bottom 8px
-            height 184px
-            width 184px
+            height $height_width_px
+            width $height_width_px
             background-size cover
-            border-radius 50%
-          > h3, div, a
-            margin 2px 0
-          > a
+          > .info
+            position absolute
             display block
+            width 100%
+            padding 10px 0 10px 0
+            bottom 40px
+            background rgba(0, 0, 0, .7)
+            > h3, div, a
+              margin 2px 0
+            > a
+              display block
 
 .mobile
   display none
@@ -230,7 +236,7 @@ body
        top 66px
        transition all ease-in 400ms
        width 100%
-       z-index 1000
+       z-index 100
        > ul
          border-top 1px dashed orange
          margin 0px
@@ -248,7 +254,7 @@ body
         display block
         margin 0
         width 100%
-        > .spinner
+        > .spinner, > .circle
           display none
         > .wrapper
           position static
@@ -256,14 +262,13 @@ body
         .contents
           margin 0
           position static
+          border-radius 0
           > .content
             box-sizing border-box
             padding-top 40px
             &.projects 
               margin 20px auto
               left 0
-              .project > img
-                border-radius 0
             &.contact
               margin 0px auto
               padding 0
