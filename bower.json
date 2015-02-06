@@ -1,0 +1,23 @@
+{
+  "name": "teacup-folio",
+  "version": "0.1.0",
+  "authors": [
+    "Eliot Baker <eliotbaker@gmail.com>"
+  ],
+  "description": "personal landing page in teacup",
+  "main": "server.coffee",
+  "license": "MIT",
+  "homepage": "http://eliotbaker.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.3",
+    "jquery-cycle2": "~2.1.6"
+  }
+}

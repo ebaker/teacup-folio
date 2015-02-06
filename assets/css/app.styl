@@ -1,21 +1,31 @@
 @import 'nib'
 
+
 body
   background #171d25
   color white
   font-family 'Lato'
   margin 0
 
+  // header
   > h1
     font-family 'Open Sans'
     font-size 42px
     margin-top 40px
     text-align center
 
+#app
+  display block
+  text-align center
+  width 768px
+  margin 0 auto
+  overflow-x hidden
+  
+  // navigation
   .navigation
     display inline-block
-    width 250px
-    margin 40px 0px 0px 25%
+    width 120px
+    margin-top 100px
     vertical-align top
     > ul
       list-style none
@@ -46,36 +56,170 @@ body
         margin-bottom 20px
         padding 10px 6px
 
+  // main
   .main
     display inline-block
-    height 380px
-    margin-top 40px
+    margin-left 120px
+    height 500px
     position relative
-    width 380px
-    > .content
-      opacity 0
+    width 420px
+
+    // spinner
+    $height_width = 420
+    $height_width_px = unit($height_width, 'px')
+    $top_margin = unit(($height_width * (-0.55)), 'px')
+    $right_margin = unit(($height_width / -2), 'px')
+    $top_margin = unit(($height_width / -2), 'px')
+
+    > .spinner
+      height $height_width_px
       position absolute
+      top 50%
+      margin $top_margin $right_margin 0 0
+      right 50%
+      width $height_width_px
+      transition all 300ms ease-in-out 200ms
+      z-index 100
+      > .circle
+        border-radius 50%
+        border 6px solid purple
+        box-sizing border-box
+        height $height_width_px
+        width $height_width_px
+        position absolute
+      > .button
+        position absolute
+        transition all 300ms ease-in-out 200ms
+        &.contact
+          top 2%
+          left 50%
+        &.projects
+          top 72%
+          left 89.5%
+        &.about
+          top 72%
+          left 8.5%
+      > .button > .info
+        background #333
+        border 10px solid orange
+        border-radius 60px
+        cursor pointer
+        margin -45px 0 0 -45px
+        position absolute
+        top 0
+        left 0
+        height 80px
+        width 80px
+        z-index 400
+        &:hover
+          background darken(#333, 10)
+        > div
+          position static
+          pointer-events none
+          display block
+          margin 26px auto
+          text-align center
+          color #eee
+          font-size 17px
+      &.contact
+        transform rotateZ(0) translateZ(0)
+      &.projects
+        transform rotateZ(-120deg) translateZ(0)
+        > div
+          transform rotateZ(120deg) translateZ(0)
+      &.about
+        transform rotateZ(-240deg) translateZ(0)
+        > div
+          transform rotateZ(240deg) translateZ(0)
+
+    // contents
+    > .wrapper
+      height $height_width_px
+      position absolute
+      top 50%
+      margin $top_margin $right_margin 0 0
+      right 50%
+      width $height_width_px
+
+    .contents
+      pointer-events none
+      position relative
+      z-index 200
+
+    .contents > .content
+      position absolute
+      width 100%
+      opacity 0
       text-align center
-      transition all ease-out 400ms
+      transition all 400ms ease-in-out 300ms
+      a, .cycle-slideshow
+        pointer-events auto
       img
         max-width 100%
       &.active
         opacity 1
         transition-delay 400ms
-        z-index 100
-      &.contact
-        padding-top 60px
+        z-index 300
+      &.about 
+        top 0
         img
-          max-height 96px
+          width 240px
+          max-width 100%
+        > div
+          margin-top 20px
+      &.contact
+        padding-top 50px
+        text-align center
+        > a
+          padding-right 8px
+        img
+          max-height 76px
           width auto
+      &.projects
+        margin 90px auto
+        width 240px
+        text-align center
+        position relative
+        left 5px
+        .slide
+          width 100%
+        .project
+          width 240px
+          margin 0 auto
+          position relative
+          > img
+            margin-bottom 8px
+            height 184px
+            width 184px
+            background-size cover
+            border-radius 50%
+          > h3, div, a
+            margin 2px 0
+          > a
+            display block
 
 .mobile
   display none
+
+@media (max-width: 768px)
+  #app
+    max-width 100%
+//     .navigation
+//       display block
+//       margin 0 auto
+// 
+//     // quick main hack
+//     .main
+//       left -210px
+//       margin-left 50%
+//       position relative
+
 
  @media (max-width: 640px)
    body
      h1
        display none
+   #app
      .navigation
        background black
        display block
@@ -86,7 +230,7 @@ body
        top 66px
        transition all ease-in 400ms
        width 100%
-       z-index 200
+       z-index 1000
        > ul
          border-top 1px dashed orange
          margin 0px
@@ -96,6 +240,7 @@ body
          > li
            border-bottom 1px dotted gray
            margin 0
+           text-align left
            padding 20px 20px 20px 60px
        &.open
          max-height 300px
@@ -103,16 +248,31 @@ body
         display block
         margin 0
         width 100%
-        > .content
-          box-sizing border-box
-          padding 10px
-          &.contact
-            margin 30px auto
-            padding 0
-            width 100%
-            > a
-              display block
-              margin-top 15px
+        > .spinner
+          display none
+        > .wrapper
+          position static
+          margin 0
+        .contents
+          margin 0
+          position static
+          > .content
+            box-sizing border-box
+            padding-top 40px
+            &.projects 
+              margin 20px auto
+              left 0
+              .project > img
+                border-radius 0
+            &.contact
+              margin 0px auto
+              padding 0
+              width 100%
+              > a
+                display block
+                margin-top 15px
+                > img
+                  max-height 90px
 
    .mobile
      background black
@@ -125,3 +285,4 @@ body
        &.button
          border-right solid 1px orange
          box-sizing border-box
+
