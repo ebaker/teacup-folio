@@ -1,0 +1,50 @@
+{
+  name: 'eliot baker'
+  contact: [
+    {
+      url: 'http://www.linkedin.com/in/eliotbaker'
+      img: 'http://eliotbaker.com/images/linkedin.png'
+    }
+    {
+      url: 'http://eliotbaker.com/images/resume.pdf'
+      img: 'http://eliotbaker.com/images/cv_pdf_vodniciar_com.png'
+    }
+    {
+      url: 'http://github.com/ebaker'
+      img: 'http://eliotbaker.com/images/github.png'
+    }
+    {
+      url: 'http://twitter.com/eliotbaker'
+      img: 'http://eliotbaker.com/images/twitter.png'
+    }
+  ]
+  projects: [
+    {
+      image: 'http://localhost:3000/images/mg.png'
+      title: 'Martin Garrixx'
+      subtitle: 'Photos'
+      url: '#'
+    }
+    {
+      image: 'http://localhost:3000/images/3lau.png'
+      title: '3LAU'
+      subtitle: 'Pencils of Promise'
+      url: '#'
+    }
+    {
+      title: 'teacup-folio'
+      subtitle: 'this page'
+      url: '#'
+      github: '#'
+    }
+    {
+      title: 'tailbone'
+      subtitle: 'tail -m on backbone over socket.io'
+      url: '#'
+      github: '#'
+    }
+  ]
+  about:
+    img: 'http://eliotbaker.com/images/me.jpg'
+    bio: 'coffeescript - yoga - tea'
+}

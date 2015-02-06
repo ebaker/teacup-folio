@@ -13,6 +13,7 @@ npm-debug.log
 node_modules/
 public/lib
 app/tests/coverage/
+bower_components
 .bower-*/
 .idea/
 

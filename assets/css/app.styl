@@ -16,10 +16,11 @@ body
 #app
   display block
   text-align center
-  width 660px
+  width 768px
   margin 0 auto
+  overflow-x hidden
   
-  //navigation
+  // navigation
   .navigation
     display inline-block
     width 120px
@@ -75,7 +76,7 @@ body
       right 45%
       width $height_width_px
       transition all 300ms ease-in-out 200ms
-      z-index 200
+      z-index 100
       > .circle
         border-radius 50%
         border 6px solid purple
@@ -130,11 +131,12 @@ body
 
     // contents
     > .contents
+      pointer-events none
       position relative
       height 340px
       width 340px
       margin 100px 0px 0px 62px
-      z-index 100
+      z-index 200
 
     > .contents > .content
       position absolute
@@ -142,6 +144,8 @@ body
       opacity 0
       text-align center
       transition all 400ms ease-in-out 300ms
+      a 
+        pointer-events auto
       img
         max-width 100%
       &.active
@@ -149,12 +153,14 @@ body
         transition-delay 400ms
         z-index 300
       &.about 
+        margin 40px 0 0 55px
+        width 240px
         img
-          border-radius 50%
+          max-width 100%
         > div
           margin-top 20px
       &.contact
-        padding-top 80px
+        margin-top 80px
         text-align center
         > a
           padding-right 8px
@@ -162,13 +168,32 @@ body
           max-height 76px
           width auto
       &.projects
-        margin-top 40px
+        margin 40px 0 0 50px
+        width 240px
+        text-align center
+        .slide
+          width 100%
+        .project
+          width 240px
+          margin 0 auto
+          position relative
+          > img
+            margin-bottom 8px
+            height 184px
+            width 184px
+            background-size cover
+            border-radius 50%
+          > h3, div, a
+            margin 2px 0
+          > a
+            display block
 
 .mobile
   display none
 
-// @media (max-width: 768px)
-//   #app
+@media (max-width: 768px)
+  #app
+    max-width 100%
 //     .navigation
 //       display block
 //       margin 0 auto
@@ -195,7 +220,7 @@ body
        top 66px
        transition all ease-in 400ms
        width 100%
-       z-index 200
+       z-index 1000
        > ul
          border-top 1px dashed orange
          margin 0px
@@ -205,25 +230,32 @@ body
          > li
            border-bottom 1px dotted gray
            margin 0
+           text-align left
            padding 20px 20px 20px 60px
        &.open
          max-height 300px
       .main
+        top -66px
         display block
         margin 0
         width 100%
         > .spinner
-          display none
-        > .content
-          box-sizing border-box
-          padding 10px
-          &.contact
-            margin 30px auto
-            padding 0
-            width 100%
-            > a
-              display block
-              margin-top 15px
+          right 49.9%
+        > .contents
+          margin 60px auto
+          padding-top 90px
+          > .content
+            box-sizing border-box
+            padding 10px
+            &.contact
+              margin 40px auto
+              padding 0
+              width 100%
+              > a
+                display inline-block
+                margin-top 15px
+                > img
+                  max-height 90px
 
    .mobile
      background black

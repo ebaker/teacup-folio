@@ -1,6 +1,6 @@
 teacup = require 'teacup'
 {renderable, raw, js, css, html, head, meta, link, script, title} = teacup
-{body, h1, div, ul, li, span, img, a} = teacup
+{body, h1, h3, div, ul, li, span, img, a} = teacup
 
 module.exports = renderable ({data, fonts, scripts}) ->
 
@@ -67,7 +67,21 @@ module.exports = renderable ({data, fonts, scripts}) ->
                         img src: contact.img
 
                   when 'projects'
-                    data.projects
+                    div '.cycle-slideshow', data: {
+                      'cycle-fx': 'scrollHorz'
+                      'cycle-timeout': '2000'
+                      'cycle-slides': '> div'
+                      'cycle-swipe': 'true'
+                    }, ->
+                      for project in data.projects
+                        div '.slide', ->
+                          div '.project', ->
+                           img src: project.image if project.image
+                           h3 -> project.title
+                           div -> project.subtitle
+                           a href: project.url, -> 'View' if project.url
+                           a href: project.github, -> 'Github' if project.github
+
 
                   when 'about'
                     img src: data.about.img
