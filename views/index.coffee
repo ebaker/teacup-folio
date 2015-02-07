@@ -20,8 +20,8 @@ module.exports = renderable ({data, fonts, scripts}) ->
       for url in scripts
         script src: url
 
-      js 'app'
-      css 'app'
+      script src: '/app.js'
+      link rel: 'stylesheet', type: 'text/css', href: '/app.css'
 
     # body
     body ->

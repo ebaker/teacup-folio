@@ -13,9 +13,24 @@ module.exports = (grunt) ->
       compile:
         options:
           compress: true
+          use:[
+            require('nib')
+          ]
         files:
           'build/app.css': ['assets/css/*.styl']
-
+    nodemon:
+      dev:
+        script: 'server.coffee'
+        options:
+          watch: [
+            'server.coffee'
+            'views/*.coffee'
+          ]
+    concurrent:
+      default: ['nodemon', 'watch']
+      options:
+        logConcurrentOutput: true
+        limit: 10
     watch:
       options:
         livereload: true
@@ -24,6 +39,7 @@ module.exports = (grunt) ->
           'assets/js/*.coffee'
           'Gruntfile.coffee'
           'server.coffee'
+          'views/*.coffee'
         ]
         tasks: ['coffee']
       style:
@@ -33,5 +49,9 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-stylus'
   grunt.loadNpmTasks 'grunt-contrib-watch'
+  grunt.loadNpmTasks 'grunt-nodemon'
+  grunt.loadNpmTasks 'grunt-concurrent'
 
-  grunt.registerTask 'default', ['coffee', 'stylus']
+
+  grunt.registerTask 'default', ['concurrent:default']
+  grunt.registerTask 'build', ['coffee', 'stylus']
