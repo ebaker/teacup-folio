@@ -22,6 +22,7 @@ module.exports = (grunt) ->
       dev:
         script: 'server.coffee'
         options:
+          args: ['dev']
           watch: [
             'server.coffee'
             'views/*.coffee'
@@ -37,7 +38,7 @@ module.exports = (grunt) ->
       app:
         files: [
           'assets/js/*.coffee'
-          'Gruntfile.coffee'
+          'cruntfile.coffee'
           'server.coffee'
           'views/*.coffee'
         ]
