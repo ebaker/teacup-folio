@@ -1,7 +1,6 @@
 express = require 'express'
 teacup = require 'teacup/lib/express'
 nib = require 'nib'
-assets = require 'teacup/lib/connect-assets'
 cson = require 'cson'
 
 # express

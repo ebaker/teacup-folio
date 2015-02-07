@@ -10,7 +10,6 @@
   "license": "MIT",
   "dependencies": {
     "coffee-script": "^1.9.0",
-    "connect-assets": "^4.4.0",
     "cson": "^1.6.2",
     "express": "^4.11.1",
     "nib": "^1.1.0",
