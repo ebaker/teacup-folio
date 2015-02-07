@@ -35,4 +35,6 @@ app.get '/', (req, res) ->
 
   res.render 'index', {data: me, fonts: fonts, scripts: mins}
 
-app.listen 3000
+port = process.env.PORT or 3000
+app.listen port, ->
+  console.log 'listening on ', port
