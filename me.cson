@@ -20,24 +20,26 @@
   ]
   projects: [
     {
-      image: 'http://localhost:3000/images/mg.png'
+      image: '/images/mg.png'
       title: 'Martin Garrixx'
       subtitle: 'Photos'
       url: '#'
     }
     {
-      image: 'http://localhost:3000/images/3lau.png'
+      image: '/images/3lau.png'
       title: '3LAU'
       subtitle: 'Pencils of Promise'
       url: '#'
     }
     {
+      image: '/images/mg.png'
       title: 'teacup-folio'
       subtitle: 'this page'
       url: '#'
       github: '#'
     }
     {
+      image: '/images/3lau.png'
       title: 'tailbone'
       subtitle: 'tail -m on backbone over socket.io'
       url: '#'

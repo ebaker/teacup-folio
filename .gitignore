@@ -16,6 +16,7 @@ app/tests/coverage/
 bower_components
 .bower-*/
 .idea/
+bower_components/
 
 # General
 # =======

@@ -1,7 +1,6 @@
 express = require 'express'
 teacup = require 'teacup/lib/express'
 nib = require 'nib'
-assets = require 'teacup/lib/connect-assets'
 cson = require 'cson'
 
 # express
@@ -13,11 +12,11 @@ app.engine 'coffee', teacup.renderFile
 
 # client files
 app.use express.static "#{process.cwd()}/public"
+app.use express.static "#{process.cwd()}/build"
 app.use '/lib', express.static("#{process.cwd()}/bower_components")
 
-# connect-assets for stylus+nib
-assets().environment.getEngines('.styl').configure (s) -> s.use(nib())
-app.use assets()
+# dev livereload
+app.use require('connect-livereload')({port: 35729}) if 'dev' in process.argv
 
 # routes
 app.get '/', (req, res) ->
@@ -36,4 +35,6 @@ app.get '/', (req, res) ->
 
   res.render 'index', {data: me, fonts: fonts, scripts: mins}
 
-app.listen 3000
+port = process.env.PORT or 3000
+app.listen port, ->
+  console.log 'listening on ', port
