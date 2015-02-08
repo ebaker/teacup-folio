@@ -25,6 +25,7 @@ app.get '/', (req, res) ->
   fonts = [
     'http://fonts.googleapis.com/css?family=Open+Sans:600'
     'http://fonts.googleapis.com/css?family=Lato:400,300italic'
+    '/css/fontello.css'
   ]
 
   mins = [
