@@ -109,7 +109,7 @@ body
         height 80px
         pointer-events auto
         width 80px
-        &:hover
+        &:active
           background darken(#333, 10)
         > div
           position static
@@ -200,8 +200,7 @@ body
             padding-top 35%
             pointer-events auto
             position absolute
-            -webkit-tap-highlight-color rgba(0, 0, 0, 0)
-            &:hover
+            &:active
               background rgba(0, 0, 0, .6)
             > i
               text-shadow -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000
@@ -240,11 +239,11 @@ body
               > i
                 position relative
                 left 5px
-              &:hover
+              &:active
                 background darken($view, 10)
               &.github
                 background $github
-                &:hover
+                &:active
                   background darken($github, 10)
 
 .mobile
