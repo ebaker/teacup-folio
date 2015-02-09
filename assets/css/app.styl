@@ -196,9 +196,11 @@ body
           height 100%
           z-index 15
           > .button
+            box-sizing border-box
             cursor pointer
             font-size 44px
             height 100%
+            max-height 100%
             padding-top 35%
             pointer-events auto
             position absolute
@@ -317,13 +319,16 @@ body
               left 0
               .cycle-slideshow
                 height 100%
+              .cycle-controls
+                > .button:active
+                  background transparent
               .project
                 > img
                   width 100%
                   height auto
                 > .info
                   bottom 0px
-                  padding-bottom 20px
+                  padding-bottom 10px
                   box-sizing border-box
             &.about
               > img
