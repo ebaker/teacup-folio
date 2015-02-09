@@ -86,9 +86,14 @@ module.exports = renderable ({data, fonts, scripts}) ->
                              div '.info', ->
                                h3 -> project.title
                                div -> project.subtitle
-                               a href: project.url, -> 'View' if project.url
+                               if project.url
+                                 a href: project.url, ->
+                                   span -> 'View'
+                                   i '.icon-export'
                                if project.github
-                                 a href: project.github, -> 'Github'
+                                 a '.github', href: project.github, ->
+                                   span -> 'Github'
+                                   i '.icon-github-circled'
 
 
                     when 'about'

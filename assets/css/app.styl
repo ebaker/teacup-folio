@@ -222,8 +222,26 @@ body
             background rgba(0, 0, 0, .7)
             > h3, div, a
               margin 2px 0
+            $github = #4183C4
+            $view = purple
             > a
               display block
+              border-radius 8px
+              padding 6px 12px
+              display inline-block
+              background $view
+              color white
+              text-decoration none
+              margin-right 5px
+              > i
+                position relative
+                left 5px
+              &:hover
+                background darken($view, 10)
+              &.github
+                background $github
+                &:hover
+                  background darken($github, 10)
 
 .mobile
   display none
