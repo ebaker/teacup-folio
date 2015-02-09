@@ -60,7 +60,7 @@ body
   .main
     display inline-block
     margin-left 120px
-    height 500px
+    height 420px
     position relative
     width 420px
 
@@ -158,10 +158,12 @@ body
       opacity 0
       text-align center
       transition all 400ms ease-in-out 300ms
+      visibility hidden
       a, .cycle-slideshow
         pointer-events auto
       &.active
         opacity 1
+        visibility visible
         transition-delay 400ms
       &.about 
         top 0
@@ -276,7 +278,7 @@ body
        overflow hidden
        position fixed
        top 66px
-       transition all ease-in 400ms
+       transition all ease-out 400ms
        width 100%
        z-index 100
        > ul
@@ -301,16 +303,29 @@ body
         > .wrapper
           position static
           margin 0
+          width 100%
         .contents
           margin 0
           position static
+          border 0
           border-radius 0
           > .content
             box-sizing border-box
             padding-top 40px
             &.projects 
-              margin 20px auto
+              margin 0px auto
               left 0
+              .project
+                > img
+                  width 100%
+                  height auto
+                > .info
+                  bottom 15px
+                  padding-bottom 20px
+                  box-sizing border-box
+            &.about
+              > img
+                max-width 100%
             &.contact
               margin 0px auto
               padding 0
@@ -319,7 +334,7 @@ body
                 display block
                 margin-top 15px
                 > img
-                  max-height 90px
+                  max-height 80px
 
    .mobile
      background black
