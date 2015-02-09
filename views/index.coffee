@@ -68,11 +68,6 @@ module.exports = renderable ({data, fonts, scripts}) ->
                           img src: contact.img
 
                     when 'projects'
-                      div '.cycle-controls', ->
-                        div '.button.left', ->
-                          i '.icon-left-open'
-                        div '.button.right', ->
-                          i '.icon-right-open'
                       div '.cycle-slideshow', data: {
                         'cycle-fx': 'scrollHorz'
                         'cycle-timeout': '2000'
@@ -94,6 +89,11 @@ module.exports = renderable ({data, fonts, scripts}) ->
                                  a '.github', href: project.github, ->
                                    span -> 'Github'
                                    i '.icon-github-circled'
+                      div '.cycle-controls', ->
+                        div '.button.left', ->
+                          i '.icon-left-open'
+                        div '.button.right', ->
+                          i '.icon-right-open'
 
 
                     when 'about'
