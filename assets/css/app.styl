@@ -59,7 +59,7 @@ body
   // main
   .main
     display inline-block
-    margin-left 120px
+    margin 40px 0 0 120px
     height 420px
     position relative
     width 420px
@@ -226,7 +226,7 @@ body
             bottom 40px
             background rgba(0, 0, 0, .7)
             > h3, div, a
-              margin 2px 0
+              margin 3px 0
             $github = #4183C4
             $view = purple
             > a
@@ -310,17 +310,19 @@ body
           border 0
           border-radius 0
           > .content
-            box-sizing border-box
-            padding-top 40px
             &.projects 
               margin 0px auto
+              height 400px
+              overflow-y hidden
               left 0
+              .cycle-slideshow
+                height 100%
               .project
                 > img
                   width 100%
                   height auto
                 > .info
-                  bottom 15px
+                  bottom 0px
                   padding-bottom 20px
                   box-sizing border-box
             &.about
