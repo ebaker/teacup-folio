@@ -68,6 +68,11 @@ module.exports = renderable ({data, fonts, scripts}) ->
                           img src: contact.img
 
                     when 'projects'
+                      div '.cycle-controls', ->
+                        div '.button.left', ->
+                          i '.icon-left-open'
+                        div '.button.right', ->
+                          i '.icon-right-open'
                       div '.cycle-slideshow', data: {
                         'cycle-fx': 'scrollHorz'
                         'cycle-timeout': '2000'

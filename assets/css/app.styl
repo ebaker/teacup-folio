@@ -183,6 +183,26 @@ body
         margin 0
         text-align center
         position relative
+        .cycle-slideshow
+          z-index 11
+        .cycle-controls
+          z-index 12
+          position absolute
+          width 100%
+          height 100%
+          > .button
+            cursor pointer
+            font-size 44px
+            height 100%
+            padding-top 35%
+            pointer-events auto
+            position absolute
+            &:hover
+              background rgba(0, 0, 0, .6)
+            > i
+              text-shadow -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000
+            &.right
+              right 0
         .slide
           width 100%
         .project
