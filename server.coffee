@@ -23,8 +23,10 @@ app.get '/', (req, res) ->
   me = cson.parseFileSync 'me.cson'
 
   fonts = [
-    'http://fonts.googleapis.com/css?family=Open+Sans:600'
-    'http://fonts.googleapis.com/css?family=Lato:400,300italic'
+    # 'http://fonts.googleapis.com/css?family=Open+Sans:600'
+    # 'http://fonts.googleapis.com/css?family=Lato:400,300italic'
+    'http://fonts.googleapis.com/css?family=Oswald'
+    'http://fonts.googleapis.com/css?family=Raleway:400,700'
     '/css/fontello.css'
   ]
 
