@@ -18,35 +18,28 @@
       img: 'http://eliotbaker.com/images/twitter.png'
     }
   ]
-  projects: [
+  work: [
     {
       image: '/images/mg.png'
       title: 'Martin Garrixx'
-      subtitle: 'Photos'
-      url: '#'
+      subtitle: 'Lifestyle'
+      url: 'http://martingarrix.com/lifestyle'
     }
     {
       image: '/images/3lau.png'
       title: '3LAU'
       subtitle: 'Pencils of Promise'
-      url: '#'
+      url: 'http://3lau.com/pop'
     }
     {
-      image: '/images/mg.png'
+      image: '/images/folio.png'
       title: 'teacup-folio'
       subtitle: 'this page'
-      url: '#'
-      github: '#'
-    }
-    {
-      image: '/images/3lau.png'
-      title: 'tailbone'
-      subtitle: 'tail -m on backbone over socket.io'
-      url: '#'
-      github: '#'
+      url: 'http://eliotbaker.com'
+      github: 'http://eliotbaker.com/teacup-folio'
     }
   ]
   about:
     img: 'http://eliotbaker.com/images/me.jpg'
-    bio: 'coffeescript - yoga - tea'
+    bio: 'tea drinking javascript yogi'
 }
