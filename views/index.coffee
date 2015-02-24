@@ -67,14 +67,14 @@ module.exports = renderable ({data, fonts, scripts}) ->
                         a href: contact.url, target: '_blank', ->
                           img src: contact.img
 
-                    when 'projects'
+                    when 'work'
                       div '.cycle-slideshow', data: {
                         'cycle-fx': 'scrollHorz'
                         'cycle-timeout': '2000'
                         'cycle-slides': '> div'
                         'cycle-swipe': 'true'
                       }, ->
-                        for project in data.projects
+                        for project in data.work
                           div '.slide', ->
                             div '.project', ->
                              img src: project.image if project.image
