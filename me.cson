@@ -26,17 +26,22 @@
       url: 'http://martingarrix.com/lifestyle'
     }
     {
+      image: '/images/movement.png'
+      title: 'Movement 2014'
+      subtitle: 'Artists'
+      url: 'http://lessthan3.com/movement-2/artists'
+    }
+    {
       image: '/images/3lau.png'
       title: '3LAU'
       subtitle: 'Pencils of Promise'
       url: 'http://3lau.com/pop'
     }
     {
-      image: '/images/folio.png'
-      title: 'teacup-folio'
-      subtitle: 'this page'
-      url: 'http://eliotbaker.com'
-      github: 'http://eliotbaker.com/teacup-folio'
+      image: '/images/nocturnal.png'
+      title: 'Nocturnal Wonderland'
+      subtitle: 'Featured & News'
+      url: 'http://nocturnalwonderland.com'
     }
   ]
   about:
