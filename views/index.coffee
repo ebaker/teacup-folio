@@ -34,7 +34,7 @@ module.exports = renderable ({data, fonts, scripts}) ->
           i '.icon-menu'
         div '.name', ->
           data.name
-        div '.active'
+      div '.mobile-subheader'
 
       div '#app', ->
 

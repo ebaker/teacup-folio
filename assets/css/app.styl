@@ -296,7 +296,7 @@ body
                 &:active
                   background darken($github, 10)
 
-.mobile
+.mobile, .mobile-subheader
   display none
 
 @media (max-width: 768px)
@@ -397,9 +397,18 @@ body
        display inline-block
        font-size 42px
        padding 8px 12px
+       text-transform capitalize
        &.button
          border-right dotted 1px orange
          box-sizing border-box
          cursor pointer
          > i
            font-size 32px
+
+    .mobile-subheader
+      box-sizing border-box
+      display block
+      font-size 24px
+      padding 8px 0
+      text-align center
+      text-transform capitalize

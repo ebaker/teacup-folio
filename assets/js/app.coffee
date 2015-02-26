@@ -2,6 +2,7 @@ $(document).ready ->
 
   # init
   $('.content.contact').addClass 'active'
+  $('.mobile-subheader').text 'contact'
   $slideshow = $('.cycle-slideshow').cycle 'pause'
   $ -> FastClick.attach document.body
 
@@ -19,7 +20,9 @@ $(document).ready ->
     spinners = 'about contact work'
     $main.find('.spinner').removeClass(spinners).addClass selector
 
+    # mobile
     $('.navigation.open').removeClass 'open'
+    $('.mobile-subheader').text selector
   
   # events
   $('.navigation > ul > li').on 'mouseenter click', (e) ->
