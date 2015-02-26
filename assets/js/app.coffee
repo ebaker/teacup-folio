@@ -37,6 +37,6 @@ $(document).ready ->
 
   
   # mobile
-  $('.mobile .button').on 'click', (e) ->
+  $('.mobile').on 'click', (e) ->
     $('.navigation > ul > li').off 'mouseenter'
     $('.navigation').toggleClass 'open'
