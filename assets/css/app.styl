@@ -99,29 +99,32 @@ body
         &.about
           left 8.5%
           top 72%
-      > .button > .info
-        background #333
-        border 10px solid orange
-        border-radius 60px
-        cursor pointer
-        height 80px
-        left 0
-        margin -45px 0 0 -45px
-        pointer-events auto
-        position absolute
-        top 0
-        width 80px
-        &:active
-          background darken(#333, 10)
-        > div
-          color #eee
-          display block
-          font-size 17px
-          margin 26px auto
-          pointer-events none
-          position static
-          text-align center
-          text-transform capitalize
+        > .info
+          background #333
+          border 10px solid orange
+          border-radius 60px
+          cursor pointer
+          height 80px
+          left 0
+          margin -45px 0 0 -45px
+          pointer-events auto
+          position absolute
+          top 0
+          width 80px
+          &:active
+            background darken(#333, 10)
+          > div
+            backface-visibility hidden
+            color #eee
+            display block
+            font-size 17px
+            font-smoothing antialiased
+            font-family Oswald
+            margin 26px auto
+            pointer-events none
+            position static
+            text-align center
+            text-transform capitalize
       &.about
         transform rotateZ(-240deg) translateZ(0)
         > div
