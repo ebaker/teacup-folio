@@ -92,7 +92,10 @@ module.exports = renderable ({data, fonts, scripts}) ->
                                h3 -> project.title
                                div -> project.subtitle
                                if project.url
-                                 a href: project.url, ->
+                                 a {
+                                   href: project.url
+                                   target: '_blank'
+                                 }, ->
                                    span -> 'View'
                                    i '.icon-export'
                                if project.github
@@ -104,7 +107,6 @@ module.exports = renderable ({data, fonts, scripts}) ->
                           i '.icon-left-open'
                         div '.button.right', ->
                           i '.icon-right-open'
-
 
                     when 'about'
                       img src: data.about.img

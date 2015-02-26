@@ -2,9 +2,18 @@
 
 $purple = purple
 $orange = orange
+$gray = gray
+
+$background_color = #171d25
+
+$purple = #4B0073
+$orange = #ED7721
+$background_color = black
+$gray = #8F9095
+
 
 body
-  background #171d25
+  background $background_color
   color white
   font-family 'Raleway'
   margin 0
@@ -167,7 +176,7 @@ body
       border 6px solid transparent
       border-radius 50%
       box-sizing border-box
-      height 100%
+      max-height 100%
       overflow hidden
       pointer-events none
       position relative
@@ -176,7 +185,6 @@ body
       -webkit-mask-image -webkit-radial-gradient(circle, white 100%, black 100%)
 
     .contents > .content
-      height 100%
       opacity 0
       position absolute
       text-align center
@@ -194,10 +202,15 @@ body
         > img
           width 100%
         > div
+          background rgba(0, 0, 0, .7)
           bottom 40px
           margin-top 20px
-          position abolute
+          padding 12px 10px
+          position absolute
+          width 100%
       &.contact
+        background lighten($background_color, 5)
+        height 100%
         padding-top 120px
         text-align center
         z-index 14
@@ -218,7 +231,6 @@ body
             color white
             display block
             font-size 12px
-            height 100%
             height 76px
             padding-top 12px
             text-decoration none
@@ -336,7 +348,8 @@ body
      h1
        display none
    #app
-     margin-top 66px
+     box-sizing border-box
+     padding-top 66px
      .overlay.open
        opacity 1
        visibility visible
@@ -352,13 +365,13 @@ body
        width 100%
        z-index 100
        > ul
-         border-top 1px dotted gray
+         border-top 1px dotted $gray
          margin 0px
          padding-left 0px
          > .slider
            display none
          > li
-           border-bottom 1px dotted gray
+           border-bottom 1px dotted $gray
            margin 0
            padding 20px 20px 20px 60px
            text-align left
@@ -366,11 +379,13 @@ body
          max-height 300px
       .main
         display block
+        height auto
         margin 0
         width 100%
         > .spinner, > .circle
           display none
         > .wrapper
+          height auto
           position static
           margin 0
           width 100%
@@ -381,12 +396,9 @@ body
           position static
           > .content
             &.work
-              height 400px
               left 0
               margin 0px auto
               overflow-y hidden
-              .cycle-slideshow
-                height 100%
               .cycle-controls
                 > .button:active
                   background transparent
@@ -402,6 +414,7 @@ body
               > img
                 max-width 100%
             &.contact
+              background none
               margin 0px auto
               padding 0
               width 100%

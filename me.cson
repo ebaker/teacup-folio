@@ -45,6 +45,6 @@
     }
   ]
   about:
-    img: 'http://eliotbaker.com/images/me.jpg'
+    img: '/images/me.png'
     bio: 'tea drinking javascript yogi'
 }
