@@ -65,8 +65,11 @@ module.exports = renderable ({data, fonts, scripts}) ->
 
                     when 'contact'
                       for contact in data.contact
-                        div ".#{contact.icon}", ->
-                          a href: contact.url, target: '_blank', ->
+                        div ->
+                          a ".#{contact.icon}", {
+                            href: contact.url
+                            target: '_blank'
+                          }, ->
                             i ".icon-#{contact.icon}"
                             if contact.icon is 'file-pdf'
                               div '.resume', -> 'Resume'
