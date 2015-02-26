@@ -22,6 +22,7 @@ $(document).ready ->
 
     # mobile
     $('.navigation.open').removeClass 'open'
+    $('.overlay').removeClass 'open'
     $('.mobile-subheader').text selector
   
   # events
@@ -43,3 +44,4 @@ $(document).ready ->
   $('.mobile').on 'click', (e) ->
     $('.navigation > ul > li').off 'mouseenter'
     $('.navigation').toggleClass 'open'
+    $('.overlay').toggleClass 'open'

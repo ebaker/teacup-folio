@@ -6,6 +6,7 @@ body
   color white
   font-family 'Raleway'
   margin 0
+  position relative
 
   // header
   > h1
@@ -15,6 +16,7 @@ body
     text-align center
     text-transform uppercase
 
+
 #app
   display block
   margin 0 auto
@@ -22,6 +24,20 @@ body
   text-align center
   width 768px
 
+  // overlay
+  .overlay
+    background rgba(0, 0, 0, .7)
+    height 100%
+    left 0
+    opacity 0
+    overflow hidden
+    position absolute
+    top 0
+    transition opacity ease .5s
+    visibility hidden
+    width 100%
+    z-index 50
+  
   // navigation
   .navigation
     display inline-block
@@ -318,6 +334,10 @@ body
      h1
        display none
    #app
+     margin-top 66px
+     .overlay.open
+       opacity 1
+       visibility visible
      .navigation
        background black
        display block
@@ -385,7 +405,7 @@ body
               width 100%
               > div
                 display block
-                margin-top 15px
+                margin-bottom 15px
                 > a
                   margin 0 auto
 
@@ -393,7 +413,12 @@ body
      background black
      display block
      height 66px
+     width 100%
+     position fixed
+     top 0
+     z-index 100
      > div
+       box-sizing border-box
        display inline-block
        font-size 42px
        padding 8px 12px

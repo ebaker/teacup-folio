@@ -34,9 +34,11 @@ module.exports = renderable ({data, fonts, scripts}) ->
           i '.icon-menu'
         div '.name', ->
           data.name
-      div '.mobile-subheader'
 
       div '#app', ->
+
+        # overlay
+        div '.overlay'
 
         # navigation
         div '.navigation', ->
@@ -49,6 +51,7 @@ module.exports = renderable ({data, fonts, scripts}) ->
 
         # content
         div '.main', ->
+          div '.mobile-subheader'
           div '.circle'
           div '.spinner', ->
             for item of data
