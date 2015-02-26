@@ -1,5 +1,7 @@
 @import 'nib'
 
+$purple = purple
+$orange = orange
 
 body
   background #171d25
@@ -49,7 +51,7 @@ body
       padding-left 20px
       position relative
       > .slider
-        background orange
+        background $orange
         border-radius 1px
         height 40px
         left 0
@@ -100,7 +102,7 @@ body
       width $height_width_px
       z-index 20
       &.circle
-        border 6px solid purple
+        border 6px solid $purple
         border-radius 50%
         box-sizing border-box
       > .button
@@ -117,7 +119,7 @@ body
           top 72%
         > .info
           background #333
-          border 10px solid orange
+          border 10px solid $orange
           border-radius 60px
           cursor pointer
           height 80px
@@ -292,7 +294,7 @@ body
             > h3, div, a
               margin 3px 0
             $github = #4183C4
-            $view = purple
+            $view = $purple
             > a
               background $view
               border-radius 8px
@@ -424,7 +426,7 @@ body
        padding 8px 12px
        text-transform capitalize
        &.button
-         border-right dotted 1px orange
+         border-right dotted 1px $orange
          box-sizing border-box
          cursor pointer
          > i
