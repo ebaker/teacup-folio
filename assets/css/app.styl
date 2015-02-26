@@ -180,12 +180,51 @@ body
         padding-top 120px
         text-align center
         z-index 14
-        > a
-          padding-right 8px
-          z-index 15
-        img
-          max-height 76px
-          width auto
+        $pdf_color = #BC001A
+        $twitter_color = #00ACEE
+        $github_color = #333
+        $linkedin_color = #0E76A8
+        $facebook_color = #435697
+        $instagram_color = #3F729B
+        > div
+          display inline-block
+          vertical-align top
+          &:not(:last-child)
+            margin-right 4px
+          &.facebook > a
+            background $facebook_color
+          &.file-pdf > a
+            background $pdf_color
+            > i
+              font-size 38px
+            .resume
+              margin-top 5px
+          &.github > a
+            background $github_color
+          &.linkedin > a
+            background $linkedin_color
+          &.twitter-bird > a
+            background $twitter_color
+          &.twitter-bird, &.github
+            > a > i:before
+              margin-left 0
+          > a
+            box-sizing border-box
+            color white
+            display block
+            font-size 12px
+            height 100%
+            padding-top 12px
+            text-decoration none
+            text-transform uppercase
+            z-index 15
+            width 76px
+            height 76px
+            border-radius 8px
+          i
+            color white
+            font-size 44px
+            font-smoothing antialiased
       &.work
         margin 0
         text-align center
@@ -341,11 +380,11 @@ body
               margin 0px auto
               padding 0
               width 100%
-              > a
+              > div
                 display block
                 margin-top 15px
-                > img
-                  max-height 80px
+                > a
+                  margin 0 auto
 
    .mobile
      background black

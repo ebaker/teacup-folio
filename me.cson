@@ -3,19 +3,19 @@
   contact: [
     {
       url: 'http://www.linkedin.com/in/eliotbaker'
-      img: 'http://eliotbaker.com/images/linkedin.png'
+      icon: 'linkedin'
     }
     {
       url: 'http://eliotbaker.com/images/resume.pdf'
-      img: 'http://eliotbaker.com/images/cv_pdf_vodniciar_com.png'
+      icon: 'file-pdf'
     }
     {
       url: 'http://github.com/ebaker'
-      img: 'http://eliotbaker.com/images/github.png'
+      icon: 'github'
     }
     {
       url: 'http://twitter.com/eliotbaker'
-      img: 'http://eliotbaker.com/images/twitter.png'
+      icon: 'twitter-bird'
     }
   ]
   work: [
