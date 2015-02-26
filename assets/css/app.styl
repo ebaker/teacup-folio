@@ -3,13 +3,16 @@
 $purple = #4B0073
 $orange = #ED7721
 $background_color = black
+$spinner_button = #333
+$spinner_button_text = #eee
 $gray = #8F9095
+
+$facebook_color = #435697
+$github_color = #333
+$instagram_color = #3F729B
+$linkedin_color = #0E76A8
 $pdf_color = #BC001A
 $twitter_color = #00ACEE
-$github_color = #333
-$linkedin_color = #0E76A8
-$facebook_color = #435697
-$instagram_color = #3F729B
 
 
 body
@@ -127,7 +130,7 @@ body
           left 8.5%
           top 72%
         > .info
-          background #333
+          background $spinner_button
           border 10px solid $orange
           border-radius 60px
           cursor pointer
@@ -139,10 +142,10 @@ body
           top 0
           width 80px
           &:active
-            background darken(#333, 10)
+            background lighten($spinner_button, 10)
           > div
             backface-visibility hidden
-            color #eee
+            color $spinner_button_text
             display block
             font-size 17px
             font-smoothing antialiased
@@ -204,10 +207,10 @@ body
         > img
           width 100%
         > div
-          background rgba(0, 0, 0, .7)
+          background rgba(0, 0, 0, .8)
           bottom 40px
           margin-top 20px
-          padding 12px 10px
+          padding 16px 10px
           position absolute
           width 100%
       &.contact
@@ -337,21 +340,23 @@ body
 
 // desktop add hover
 @media (min-width: 1025px)
-  #app
-    .main .contents > .content
+  #app .main
+    > .spinner > .button > .info:hover
+      background lighten($spinner_button, 10)
+    .contents > .content
       &.contact > div > a
         &.facebook:hover
-          background lighten($facebook_color, 10)
+          background lighten($facebook_color, 5)
         &.file-pdf:hover
-          background lighten($pdf_color, 10)
+          background lighten($pdf_color, 5)
         &.github:hover
-          background lighten($github_color, 10)
+          background lighten($github_color, 5)
         &.instagram:hover
-          background lighten($instagram_color, 10)
+          background lighten($instagram_color, 5)
         &.linkedin:hover
-          background lighten($linkedin_color, 10)
+          background lighten($linkedin_color, 5)
         &.twitter-bird:hover
-          background lighten($twitter_color, 10)
+          background lighten($twitter_color, 5)
       &.work .cycle-controls > .button:hover
         background rgba(0, 0, 0, .5)
 
