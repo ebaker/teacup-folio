@@ -1,15 +1,15 @@
 @import 'nib'
 
-$purple = purple
-$orange = orange
-$gray = gray
-
-$background_color = #171d25
-
 $purple = #4B0073
 $orange = #ED7721
 $background_color = black
 $gray = #8F9095
+$pdf_color = #BC001A
+$twitter_color = #00ACEE
+$github_color = #333
+$linkedin_color = #0E76A8
+$facebook_color = #435697
+$instagram_color = #3F729B
 
 
 body
@@ -216,12 +216,6 @@ body
         padding-top 120px
         text-align center
         z-index 14
-        $pdf_color = #BC001A
-        $twitter_color = #00ACEE
-        $github_color = #333
-        $linkedin_color = #0E76A8
-        $facebook_color = #435697
-        $instagram_color = #3F729B
         > div
           display inline-block
           vertical-align top
@@ -241,18 +235,28 @@ body
             z-index 15
             &.facebook
               background $facebook_color
+              &:active
+                background darken($facebook_color, 10)
             &.file-pdf
               background $pdf_color
+              &:active
+                background lighten($pdf_color, 10)
               > i
                 font-size 38px
               .resume
                 margin-top 5px
             &.github
               background $github_color
+              &:active
+                background lighten($github_color, 10)
             &.linkedin
               background $linkedin_color
+              &:active
+                background lighten($linkedin_color, 10)
             &.twitter-bird
               background $twitter_color
+              &:active
+                background lighten($twitter_color, 10)
             &.twitter-bird, &.github
               > i:before
                 margin-left 0
@@ -331,6 +335,28 @@ body
 .mobile, .mobile-subheader
   display none
 
+// desktop add hover
+@media (min-width: 1025px)
+  #app
+    .main .contents > .content
+      &.contact > div > a
+        &.facebook:hover
+          background lighten($facebook_color, 10)
+        &.file-pdf:hover
+          background lighten($pdf_color, 10)
+        &.github:hover
+          background lighten($github_color, 10)
+        &.instagram:hover
+          background lighten($instagram_color, 10)
+        &.linkedin:hover
+          background lighten($linkedin_color, 10)
+        &.twitter-bird:hover
+          background lighten($twitter_color, 10)
+      &.work .cycle-controls > .button:hover
+        background rgba(0, 0, 0, .5)
+
+
+// portrait ipad
 @media (max-width: 768px)
   #app
     max-width 100%
@@ -343,115 +369,115 @@ body
       margin 80px auto
 
 
- @media (max-width: 640px)
-   body
-     h1
-       display none
-   #app
-     box-sizing border-box
-     padding-top 66px
-     .overlay.open
-       opacity 1
-       visibility visible
-     .navigation
-       background black
-       display block
-       margin 0
-       max-height 0
-       overflow hidden
-       position fixed
-       top 66px
-       transition all ease-out 400ms
-       width 100%
-       z-index 100
-       > ul
-         border-top 1px dotted $gray
-         margin 0px
-         padding-left 0px
-         > .slider
-           display none
-         > li
-           border-bottom 1px dotted $gray
-           margin 0
-           padding 20px 20px 20px 60px
-           text-align left
-       &.open
-         max-height 300px
-      .main
-        display block
+@media (max-width: 640px)
+  body
+    h1
+      display none
+  #app
+    box-sizing border-box
+    padding-top 66px
+    .overlay.open
+      opacity 1
+      visibility visible
+    .navigation
+      background black
+      display block
+      margin 0
+      max-height 0
+      overflow hidden
+      position fixed
+      top 66px
+      transition all ease-out 400ms
+      width 100%
+      z-index 100
+      > ul
+        border-top 1px dotted $gray
+        margin 0px
+        padding-left 0px
+        > .slider
+          display none
+        > li
+          border-bottom 1px dotted $gray
+          margin 0
+          padding 20px 20px 20px 60px
+          text-align left
+      &.open
+        max-height 300px
+    .main
+      display block
+      height auto
+      margin 0
+      width 100%
+      > .spinner, > .circle
+        display none
+      > .wrapper
         height auto
+        position static
         margin 0
         width 100%
-        > .spinner, > .circle
-          display none
-        > .wrapper
-          height auto
-          position static
-          margin 0
-          width 100%
-        .contents
-          border 0
-          border-radius 0
-          margin 0
-          position static
-          > .content
-            &.work
-              left 0
-              margin 0px auto
-              overflow-y hidden
-              .cycle-controls
-                > .button:active
-                  background transparent
-              .project
-                > img
-                  height auto
-                  width 100%
-                > .info
-                  bottom 0px
-                  box-sizing border-box
-                  padding-bottom 10px
-            &.about
+      .contents
+        border 0
+        border-radius 0
+        margin 0
+        position static
+        > .content
+          &.work
+            left 0
+            margin 0px auto
+            overflow-y hidden
+            .cycle-controls
+              > .button:active
+                background transparent
+            .project
               > img
-                max-width 100%
-              > div
-                margin-top 0
-                position static
-            &.contact
-              background none
-              margin 0px auto
-              padding 0
-              width 100%
-              > div
-                display block
-                margin-bottom 15px
-                > a
-                  margin 0 auto
+                height auto
+                width 100%
+              > .info
+                bottom 0px
+                box-sizing border-box
+                padding-bottom 10px
+          &.about
+            > img
+              max-width 100%
+            > div
+              margin-top 0
+              position static
+          &.contact
+            background none
+            margin 0px auto
+            padding 0
+            width 100%
+            > div
+              display block
+              margin-bottom 15px
+              > a
+                margin 0 auto
 
-   .mobile
-     background black
-     display block
-     height 66px
-     width 100%
-     position fixed
-     top 0
-     z-index 100
-     > div
-       box-sizing border-box
-       display inline-block
-       font-size 42px
-       padding 8px 12px
-       text-transform capitalize
-       &.button
-         border-right dotted 1px $orange
-         box-sizing border-box
-         cursor pointer
-         > i
-           font-size 32px
-
-    .mobile-subheader
+  .mobile
+    background black
+    display block
+    height 66px
+    width 100%
+    position fixed
+    top 0
+    z-index 100
+    > div
       box-sizing border-box
-      display block
-      font-size 24px
-      padding 8px 0
-      text-align center
+      display inline-block
+      font-size 42px
+      padding 8px 12px
       text-transform capitalize
+      &.button
+        border-right dotted 1px $orange
+        box-sizing border-box
+        cursor pointer
+        > i
+          font-size 32px
+
+  .mobile-subheader
+    box-sizing border-box
+    display block
+    font-size 24px
+    padding 8px 0
+    text-align center
+    text-transform capitalize
