@@ -30,7 +30,8 @@ module.exports = renderable ({data, fonts, scripts}) ->
       h1 -> data.name
 
       div '.mobile', ->
-        div '.button', -> '>'
+        div '.button', ->
+          i '.icon-menu'
         div '.name', ->
           data.name
         div '.active'
