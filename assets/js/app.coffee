@@ -2,7 +2,7 @@ $(document).ready ->
 
   # init
   $('.content.contact').addClass 'active'
-  $('.cycle-slideshow').cycle()
+  $slideshow = $('.cycle-slideshow').cycle 'pause'
 
   # helpers
   navigate = (selector) ->
@@ -28,6 +28,12 @@ $(document).ready ->
   $('.spinner > .button > .info').on 'mouseup', (e) ->
     selector = $(e.currentTarget).parent().data 'selector'
     navigate selector
+
+  $('.projects > .cycle-controls > .button').on 'mouseup', (e) ->
+    $btn = $ e.currentTarget
+    if $btn.hasClass 'left' then $slideshow.cycle 'prev'
+    else if $btn.hasClass 'right' then $slideshow.cycle 'next'
+
   
   # mobile
   $('.mobile .button').on 'mouseup', (e) ->

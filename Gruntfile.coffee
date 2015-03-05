@@ -9,15 +9,18 @@ module.exports = (grunt) ->
             [
               'assets/js/*.coffee'
             ]
-    stylus:
-      compile:
+    concurrent:
+      default: ['nodemon', 'watch']
+      options:
+        logConcurrentOutput: true
+        limit: 10
+    fontello:
+      dist:
         options:
-          compress: true
-          use:[
-            require('nib')
-          ]
-        files:
-          'build/app.css': ['assets/css/*.styl']
+          config: 'assets/fontello/config.json'
+          fonts: 'build/font'
+          styles: 'build/css'
+          force: true
     nodemon:
       dev:
         script: 'server.coffee'
@@ -27,11 +30,15 @@ module.exports = (grunt) ->
             'server.coffee'
             'views/*.coffee'
           ]
-    concurrent:
-      default: ['nodemon', 'watch']
-      options:
-        logConcurrentOutput: true
-        limit: 10
+    stylus:
+      compile:
+        options:
+          compress: true
+          use:[
+            require('nib')
+          ]
+        files:
+          'build/app.css': ['assets/css/*.styl']
     watch:
       options:
         livereload: true
@@ -47,12 +54,12 @@ module.exports = (grunt) ->
         files: 'assets/css/*.styl'
         tasks: 'stylus'
 
+  grunt.loadNpmTasks 'grunt-concurrent'
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-stylus'
   grunt.loadNpmTasks 'grunt-contrib-watch'
+  grunt.loadNpmTasks 'grunt-fontello'
   grunt.loadNpmTasks 'grunt-nodemon'
-  grunt.loadNpmTasks 'grunt-concurrent'
-
 
   grunt.registerTask 'default', ['concurrent:default']
-  grunt.registerTask 'build', ['coffee', 'stylus']
+  grunt.registerTask 'build', ['coffee', 'stylus', 'fontello']

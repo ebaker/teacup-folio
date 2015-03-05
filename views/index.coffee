@@ -1,6 +1,6 @@
 teacup = require 'teacup'
 {renderable, raw, js, css, html, head, meta, link, script, title} = teacup
-{body, h1, h3, div, ul, li, span, img, a} = teacup
+{body, h1, h3, div, ul, li, span, img, a, i} = teacup
 
 module.exports = renderable ({data, fonts, scripts}) ->
 
@@ -81,9 +81,19 @@ module.exports = renderable ({data, fonts, scripts}) ->
                              div '.info', ->
                                h3 -> project.title
                                div -> project.subtitle
-                               a href: project.url, -> 'View' if project.url
+                               if project.url
+                                 a href: project.url, ->
+                                   span -> 'View'
+                                   i '.icon-export'
                                if project.github
-                                 a href: project.github, -> 'Github'
+                                 a '.github', href: project.github, ->
+                                   span -> 'Github'
+                                   i '.icon-github-circled'
+                      div '.cycle-controls', ->
+                        div '.button.left', ->
+                          i '.icon-left-open'
+                        div '.button.right', ->
+                          i '.icon-right-open'
 
 
                     when 'about'
