@@ -19,7 +19,7 @@ body
   text-align center
   width 768px
   margin 0 auto
-  overflow-x hidden
+  overflow hidden
   
   // navigation
   .navigation
@@ -59,8 +59,8 @@ body
   // main
   .main
     display inline-block
-    margin-left 120px
-    height 500px
+    margin 40px 0 0 120px
+    height 420px
     position relative
     width 420px
 
@@ -109,7 +109,7 @@ body
         height 80px
         pointer-events auto
         width 80px
-        &:hover
+        &:active
           background darken(#333, 10)
         > div
           position static
@@ -158,10 +158,12 @@ body
       opacity 0
       text-align center
       transition all 400ms ease-in-out 300ms
+      visibility hidden
       a, .cycle-slideshow
         pointer-events auto
       &.active
         opacity 1
+        visibility visible
         transition-delay 400ms
       &.about 
         top 0
@@ -194,13 +196,16 @@ body
           height 100%
           z-index 15
           > .button
+            box-sizing border-box
             cursor pointer
             font-size 44px
             height 100%
+            max-height 100%
             padding-top 35%
             pointer-events auto
             position absolute
-            &:hover
+            -webkit-tap-highlight-color rgba(0, 0, 0, 0)
+            &:active
               background rgba(0, 0, 0, .6)
             > i
               text-shadow -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000
@@ -224,7 +229,7 @@ body
             bottom 40px
             background rgba(0, 0, 0, .7)
             > h3, div, a
-              margin 2px 0
+              margin 3px 0
             $github = #4183C4
             $view = purple
             > a
@@ -239,11 +244,11 @@ body
               > i
                 position relative
                 left 5px
-              &:hover
+              &:active
                 background darken($view, 10)
               &.github
                 background $github
-                &:hover
+                &:active
                   background darken($github, 10)
 
 .mobile
@@ -276,7 +281,7 @@ body
        overflow hidden
        position fixed
        top 66px
-       transition all ease-in 400ms
+       transition all ease-out 400ms
        width 100%
        z-index 100
        > ul
@@ -301,16 +306,34 @@ body
         > .wrapper
           position static
           margin 0
+          width 100%
         .contents
           margin 0
           position static
+          border 0
           border-radius 0
           > .content
-            box-sizing border-box
-            padding-top 40px
             &.projects 
-              margin 20px auto
+              margin 0px auto
+              height 400px
+              overflow-y hidden
               left 0
+              .cycle-slideshow
+                height 100%
+              .cycle-controls
+                > .button:active
+                  background transparent
+              .project
+                > img
+                  width 100%
+                  height auto
+                > .info
+                  bottom 0px
+                  padding-bottom 10px
+                  box-sizing border-box
+            &.about
+              > img
+                max-width 100%
             &.contact
               margin 0px auto
               padding 0
@@ -319,7 +342,7 @@ body
                 display block
                 margin-top 15px
                 > img
-                  max-height 90px
+                  max-height 80px
 
    .mobile
      background black

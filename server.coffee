@@ -32,6 +32,7 @@ app.get '/', (req, res) ->
     '/lib/jquery/dist/jquery.min.js'
     '/lib/jquery-cycle2/build/jquery.cycle2.min.js'
     '/lib/jquery-cycle2/build/plugin/jquery.cycle2.swipe.min.js'
+    '/lib/fastclick/lib/fastclick.js'
   ]
 
   res.render 'index', {data: me, fonts: fonts, scripts: mins}

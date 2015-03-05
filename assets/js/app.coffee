@@ -3,6 +3,7 @@ $(document).ready ->
   # init
   $('.content.contact').addClass 'active'
   $slideshow = $('.cycle-slideshow').cycle 'pause'
+  $ -> FastClick.attach document.body
 
   # helpers
   navigate = (selector) ->
@@ -21,21 +22,21 @@ $(document).ready ->
     $('.navigation.open').removeClass 'open'
   
   # events
-  $('.navigation > ul > li').on 'mouseenter mouseup', (e) ->
+  $('.navigation > ul > li').on 'mouseenter click', (e) ->
     selector = $(e.currentTarget).data 'selector'
     navigate selector
 
-  $('.spinner > .button > .info').on 'mouseup', (e) ->
+  $('.spinner > .button > .info').on 'click', (e) ->
     selector = $(e.currentTarget).parent().data 'selector'
     navigate selector
 
-  $('.projects > .cycle-controls > .button').on 'mouseup', (e) ->
+  $('.projects > .cycle-controls > .button').on 'click', (e) ->
     $btn = $ e.currentTarget
     if $btn.hasClass 'left' then $slideshow.cycle 'prev'
     else if $btn.hasClass 'right' then $slideshow.cycle 'next'
 
   
   # mobile
-  $('.mobile .button').on 'mouseup', (e) ->
+  $('.mobile .button').on 'click', (e) ->
     $('.navigation > ul > li').off 'mouseenter'
     $('.navigation').toggleClass 'open'
