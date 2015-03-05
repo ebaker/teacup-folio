@@ -30,12 +30,15 @@ module.exports = renderable ({data, fonts, scripts}) ->
       h1 -> data.name
 
       div '.mobile', ->
-        div '.button', -> '>'
+        div '.button', ->
+          i '.icon-menu'
         div '.name', ->
           data.name
-        div '.active'
 
       div '#app', ->
+
+        # overlay
+        div '.overlay'
 
         # navigation
         div '.navigation', ->
@@ -48,6 +51,7 @@ module.exports = renderable ({data, fonts, scripts}) ->
 
         # content
         div '.main', ->
+          div '.mobile-subheader'
           div '.circle'
           div '.spinner', ->
             for item of data
@@ -64,17 +68,23 @@ module.exports = renderable ({data, fonts, scripts}) ->
 
                     when 'contact'
                       for contact in data.contact
-                        a href: contact.url, target: '_blank', ->
-                          img src: contact.img
+                        div ->
+                          a ".#{contact.icon}", {
+                            href: contact.url
+                            target: '_blank'
+                          }, ->
+                            i ".icon-#{contact.icon}"
+                            if contact.icon is 'file-pdf'
+                              div '.resume', -> 'Resume'
 
-                    when 'projects'
+                    when 'work'
                       div '.cycle-slideshow', data: {
                         'cycle-fx': 'scrollHorz'
                         'cycle-timeout': '2000'
                         'cycle-slides': '> div'
                         'cycle-swipe': 'true'
                       }, ->
-                        for project in data.projects
+                        for project in data.work
                           div '.slide', ->
                             div '.project', ->
                              img src: project.image if project.image
@@ -82,7 +92,10 @@ module.exports = renderable ({data, fonts, scripts}) ->
                                h3 -> project.title
                                div -> project.subtitle
                                if project.url
-                                 a href: project.url, ->
+                                 a {
+                                   href: project.url
+                                   target: '_blank'
+                                 }, ->
                                    span -> 'View'
                                    i '.icon-export'
                                if project.github
@@ -94,7 +107,6 @@ module.exports = renderable ({data, fonts, scripts}) ->
                           i '.icon-left-open'
                         div '.button.right', ->
                           i '.icon-right-open'
-
 
                     when 'about'
                       img src: data.about.img

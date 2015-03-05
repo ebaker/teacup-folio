@@ -1,38 +1,69 @@
 @import 'nib'
 
+$purple = #4B0073
+$orange = #ED7721
+$background_color = black
+$spinner_button = #333
+$spinner_button_text = #eee
+$gray = #8F9095
+
+$facebook_color = #435697
+$github_color = #333
+$instagram_color = #3F729B
+$linkedin_color = #0E76A8
+$pdf_color = #BC001A
+$twitter_color = #00ACEE
+
 
 body
-  background #171d25
+  background $background_color
   color white
-  font-family 'Lato'
+  font-family 'Raleway'
   margin 0
+  position relative
 
   // header
   > h1
-    font-family 'Open Sans'
-    font-size 42px
-    margin-top 40px
+    font-family 'Oswald'
+    font-size 54px
+    margin 30px 0 10px 0
     text-align center
+    text-transform uppercase
+
 
 #app
   display block
-  text-align center
-  width 768px
   margin 0 auto
   overflow hidden
+  text-align center
+  width 768px
+
+  // overlay
+  .overlay
+    background rgba(0, 0, 0, .7)
+    height 100%
+    left 0
+    opacity 0
+    overflow hidden
+    position absolute
+    top 0
+    transition opacity ease .5s
+    visibility hidden
+    width 100%
+    z-index 50
   
   // navigation
   .navigation
     display inline-block
-    width 120px
     margin-top 100px
     vertical-align top
+    width 120px
     > ul
       list-style none
       padding-left 20px
       position relative
       > .slider
-        background orange
+        background $orange
         border-radius 1px
         height 40px
         left 0
@@ -41,26 +72,27 @@ body
         transition all 240ms cubic-bezier(0.145, 1.075, 0.345, 1.12) 60ms
         transition-duration 400ms
         width 6px
-        &.contact
-          transform translateY(0) translateZ(0)
-        &.projects
-          transform translateY(70px) translateZ(0)
         &.about
           transform translateY(140px) translateZ(0)
+        &.contact
+          transform translateY(0) translateZ(0)
+        &.work
+          transform translateY(70px) translateZ(0)
       > li
         box-sizing border-box
         cursor pointer
-        font-family 'Lato'
         font-size 24px
         font-weight 400
         margin-bottom 20px
         padding 10px 6px
+        text-align left
+        text-transform capitalize
 
   // main
   .main
     display inline-block
-    margin 40px 0 0 120px
     height 420px
+    margin 60px 0 0 120px
     position relative
     width 420px
 
@@ -73,127 +105,179 @@ body
 
     > .spinner, > .circle
       height $height_width_px
-      position absolute
-      top 50%
       margin $top_margin $right_margin 0 0
-      right 50%
-      width $height_width_px
-      transition all 300ms ease-in-out 200ms
-      z-index 20
       pointer-events none
+      position absolute
+      right 50%
+      top 50%
+      transition all 300ms ease-in-out 200ms
+      width $height_width_px
+      z-index 20
       &.circle
+        border 6px solid $purple
         border-radius 50%
-        border 6px solid purple
         box-sizing border-box
       > .button
         position absolute
         transition all 300ms ease-in-out 200ms
         &.contact
-          top 2%
           left 50%
-        &.projects
-          top 72%
+          top 2%
+        &.work
           left 89.5%
-        &.about
           top 72%
+        &.about
           left 8.5%
-      > .button > .info
-        background #333
-        border 10px solid orange
-        border-radius 60px
-        cursor pointer
-        margin -45px 0 0 -45px
-        position absolute
-        top 0
-        left 0
-        height 80px
-        pointer-events auto
-        width 80px
-        &:active
-          background darken(#333, 10)
-        > div
-          position static
-          pointer-events none
-          display block
-          margin 26px auto
-          text-align center
-          color #eee
-          font-size 17px
-      &.contact
-        transform rotateZ(0) translateZ(0)
-      &.projects
-        transform rotateZ(-120deg) translateZ(0)
-        > div
-          transform rotateZ(120deg) translateZ(0)
+          top 72%
+        > .info
+          background $spinner_button
+          border 10px solid $orange
+          border-radius 60px
+          cursor pointer
+          height 80px
+          left 0
+          margin -45px 0 0 -45px
+          pointer-events auto
+          position absolute
+          top 0
+          width 80px
+          &:active
+            background lighten($spinner_button, 10)
+          > div
+            backface-visibility hidden
+            color $spinner_button_text
+            display block
+            font-size 17px
+            font-smoothing antialiased
+            font-family Oswald
+            margin 26px auto
+            pointer-events none
+            position static
+            text-align center
+            text-transform capitalize
       &.about
         transform rotateZ(-240deg) translateZ(0)
         > div
           transform rotateZ(240deg) translateZ(0)
+      &.contact
+        transform rotateZ(0) translateZ(0)
+      &.work
+        transform rotateZ(-120deg) translateZ(0)
+        > div
+          transform rotateZ(120deg) translateZ(0)
 
     // contents
     > .wrapper
       height $height_width_px
-      position absolute
-      top 50%
       margin $top_margin $right_margin 0 0
+      position absolute
       right 50%
+      top 50%
       width $height_width_px
 
     .contents
+      border 6px solid transparent
+      border-radius 50%
+      box-sizing border-box
+      max-height 100%
+      overflow hidden
       pointer-events none
       position relative
-      z-index 10
-      border-radius 50%
-      overflow hidden
-      height 100%
       width 100%
-      border 6px solid transparent
-      box-sizing border-box
+      z-index 10
       -webkit-mask-image -webkit-radial-gradient(circle, white 100%, black 100%)
 
     .contents > .content
-      position absolute
-      width 100%
-      height 100%
       opacity 0
+      position absolute
       text-align center
       transition all 400ms ease-in-out 300ms
       visibility hidden
+      width 100%
       a, .cycle-slideshow
         pointer-events auto
       &.active
         opacity 1
-        visibility visible
         transition-delay 400ms
-      &.about 
+        visibility visible
+      &.about
         top 0
+        height 100%
+        pointer-events auto
         > img
           width 100%
         > div
-          position abolute
+          background rgba(0, 0, 0, .8)
           bottom 40px
           margin-top 20px
+          padding 16px 10px
+          position absolute
+          width 100%
       &.contact
+        background lighten($background_color, 5)
+        height 100%
         padding-top 120px
         text-align center
         z-index 14
-        > a
-          padding-right 8px
-          z-index 15
-        img
-          max-height 76px
-          width auto
-      &.projects
+        > div
+          display inline-block
+          vertical-align top
+          &:not(:last-child)
+            margin-right 4px
+          > a
+            border-radius 8px
+            box-sizing border-box
+            color white
+            display block
+            font-size 12px
+            height 76px
+            padding-top 12px
+            text-decoration none
+            text-transform uppercase
+            width 76px
+            z-index 15
+            &.facebook
+              background $facebook_color
+              &:active
+                background darken($facebook_color, 10)
+            &.file-pdf
+              background $pdf_color
+              &:active
+                background lighten($pdf_color, 10)
+              > i
+                font-size 38px
+              .resume
+                margin-top 5px
+            &.github
+              background $github_color
+              &:active
+                background lighten($github_color, 10)
+            &.linkedin
+              background $linkedin_color
+              &:active
+                background lighten($linkedin_color, 10)
+            &.twitter-bird
+              background $twitter_color
+              &:active
+                background lighten($twitter_color, 10)
+            &.twitter-bird, &.github
+              > i:before
+                margin-left 0
+            > i
+              color white
+              font-size 44px
+              font-smoothing antialiased
+      &.work
         margin 0
         text-align center
         position relative
         .cycle-slideshow
           z-index 14
         .cycle-controls
+          height 100%
           position absolute
           top 0
           width 100%
-          height 100%
           z-index 15
           > .button
             box-sizing border-box
@@ -217,33 +301,33 @@ body
           margin 0 auto
           position relative
           > img
-            margin-bottom 8px
-            height $height_width_px
-            width $height_width_px
             background-size cover
+            height $height_width_px
+            margin-bottom 8px
+            width $height_width_px
           > .info
-            position absolute
-            display block
-            width 100%
-            padding 10px 0 10px 0
-            bottom 40px
             background rgba(0, 0, 0, .7)
+            bottom 40px
+            display block
+            padding 10px 0 10px 0
+            position absolute
+            width 100%
             > h3, div, a
               margin 3px 0
             $github = #4183C4
-            $view = purple
+            $view = $purple
             > a
-              display block
-              border-radius 8px
-              padding 6px 12px
-              display inline-block
               background $view
+              border-radius 8px
               color white
-              text-decoration none
+              display block
+              display inline-block
               margin-right 5px
+              padding 6px 12px
+              text-decoration none
               > i
-                position relative
                 left 5px
+                position relative
               &:active
                 background darken($view, 10)
               &.github
@@ -251,108 +335,154 @@ body
                 &:active
                   background darken($github, 10)
 
-.mobile
+.mobile, .mobile-subheader
   display none
 
+// desktop add hover
+@media (min-width: 1025px)
+  #app .main
+    > .spinner > .button > .info:hover
+      background lighten($spinner_button, 10)
+    .contents > .content
+      &.contact > div > a
+        &.facebook:hover
+          background lighten($facebook_color, 5)
+        &.file-pdf:hover
+          background lighten($pdf_color, 5)
+        &.github:hover
+          background lighten($github_color, 5)
+        &.instagram:hover
+          background lighten($instagram_color, 5)
+        &.linkedin:hover
+          background lighten($linkedin_color, 5)
+        &.twitter-bird:hover
+          background lighten($twitter_color, 5)
+      &.work .cycle-controls > .button:hover
+        background rgba(0, 0, 0, .5)
+
+
+// portrait ipad
 @media (max-width: 768px)
   #app
     max-width 100%
-//     .navigation
-//       display block
-//       margin 0 auto
-// 
-//     // quick main hack
-//     .main
-//       left -210px
-//       margin-left 50%
-//       position relative
+    .navigation
+      display block
+      margin 0 auto
+
+    .main
+      display block
+      margin 80px auto
 
 
- @media (max-width: 640px)
-   body
-     h1
-       display none
-   #app
-     .navigation
-       background black
-       display block
-       margin 0
-       max-height 0
-       overflow hidden
-       position fixed
-       top 66px
-       transition all ease-out 400ms
-       width 100%
-       z-index 100
-       > ul
-         border-top 1px dashed orange
-         margin 0px
-         padding-left 0px
-         > .slider
-           display none
-         > li
-           border-bottom 1px dotted gray
-           margin 0
-           text-align left
-           padding 20px 20px 20px 60px
-       &.open
-         max-height 300px
-      .main
-        display block
+@media (max-width: 640px)
+  body
+    h1
+      display none
+  #app
+    box-sizing border-box
+    padding-top 66px
+    .overlay.open
+      opacity 1
+      visibility visible
+    .navigation
+      background black
+      display block
+      margin 0
+      max-height 0
+      overflow hidden
+      position fixed
+      top 66px
+      transition all ease-out 400ms
+      width 100%
+      z-index 100
+      > ul
+        border-top 1px dotted $gray
+        margin 0px
+        padding-left 0px
+        > .slider
+          display none
+        > li
+          border-bottom 1px dotted $gray
+          margin 0
+          padding 20px 20px 20px 60px
+          text-align left
+      &.open
+        max-height 300px
+    .main
+      display block
+      height auto
+      margin 0
+      width 100%
+      > .spinner, > .circle
+        display none
+      > .wrapper
+        height auto
+        position static
         margin 0
         width 100%
-        > .spinner, > .circle
-          display none
-        > .wrapper
-          position static
-          margin 0
-          width 100%
-        .contents
-          margin 0
-          position static
-          border 0
-          border-radius 0
-          > .content
-            &.projects 
-              margin 0px auto
-              height 400px
-              overflow-y hidden
-              left 0
-              .cycle-slideshow
-                height 100%
-              .cycle-controls
-                > .button:active
-                  background transparent
-              .project
-                > img
-                  width 100%
-                  height auto
-                > .info
-                  bottom 0px
-                  padding-bottom 10px
-                  box-sizing border-box
-            &.about
+      .contents
+        border 0
+        border-radius 0
+        margin 0
+        position static
+        > .content
+          &.work
+            left 0
+            margin 0px auto
+            overflow-y hidden
+            .cycle-controls
+              > .button:active
+                background transparent
+            .project
               > img
-                max-width 100%
-            &.contact
-              margin 0px auto
-              padding 0
-              width 100%
+                height auto
+                width 100%
+              > .info
+                bottom 0px
+                box-sizing border-box
+                padding-bottom 10px
+          &.about
+            > img
+              max-width 100%
+            > div
+              margin-top 0
+              position static
+          &.contact
+            background none
+            margin 0px auto
+            padding 0
+            width 100%
+            > div
+              display block
+              margin-bottom 15px
               > a
-                display block
-                margin-top 15px
-                > img
-                  max-height 80px
+                margin 0 auto
 
-   .mobile
-     background black
-     display block
-     height 66px
-     > div
-       display inline-block
-       font-size 42px
-       padding 8px 12px
-       &.button
-         border-right solid 1px orange
-         box-sizing border-box
+  .mobile
+    background black
+    display block
+    height 66px
+    width 100%
+    position fixed
+    top 0
+    z-index 100
+    > div
+      box-sizing border-box
+      display inline-block
+      font-size 42px
+      padding 8px 12px
+      text-transform capitalize
+      &.button
+        border-right dotted 1px $orange
+        box-sizing border-box
+        cursor pointer
+        > i
+          font-size 32px
 
+  .mobile-subheader
+    box-sizing border-box
+    display block
+    font-size 24px
+    padding 8px 0
+    text-align center
+    text-transform capitalize
