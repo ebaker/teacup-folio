@@ -18,13 +18,13 @@ $ npm install -g coffee-script bower nodemon
 
 ## Get Started
 ```sh
-$ git clone https://github.com/ebaker/stylus-tea-boiler.git
-$ cd stylus-tea-boiler
+$ git clone https://github.com/ebaker/teacup-folio.git
+$ cd teacup-folio
 $ npm install
 $ bower install
 $ grunt build
 $ grunt
-$ vim assets/js/app.js
+$ vim assets/css/app.styl
 ```
 
 ## Structure
