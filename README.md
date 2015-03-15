@@ -4,7 +4,9 @@
  [coffeescript](http://coffeescript.org/) environment using
  [teacup](https://github.com/goodeggs/teacup) for html templating and
  [stylus](http://learnboost.github.io/stylus/) for CSS-preprocessing served over
- [express](https://github.com/strongloop/express).
+ [express](https://github.com/strongloop/express). Basic server-side MVC
+ paradigm implemented with the data model stored in "me.cson", an index view
+ in views, and controller logic handled by express in server.coffee.
 
 ## Client Dependancy Libraries
  - [jquery](http://jquery.com)
